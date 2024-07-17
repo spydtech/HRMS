@@ -16,11 +16,13 @@ import {
   FaBuilding,
 } from "react-icons/fa";
 import { MdOutlineSocialDistance } from "react-icons/md";
+import profile from "../../assets/employee/profile/profile.jpg";
 import RecruitmentTab from "./Employeetab/EmployeeTab";
 
 function SideBar() {
   const [activeTab, setActiveTab] = useState("");
   const [showEmployeeOptions, setShowEmployeeOptions] = useState(false);
+  const [selectedHeader, setSelectedHeader] = useState("");
 
   const options = [
     {
@@ -55,9 +57,40 @@ function SideBar() {
     }
   };
 
+  const handleHeaderClick = (header) => {
+    setSelectedHeader(header);
+  };
+
   return (
     <div className="flex h-auto pb-10 bg-[#dbf2ff]">
-      <div className="bg-[#0098f1] w-[240px] pt-20 pb-10 h-auto rounded-br-[48px]">
+      <div className="bg-[#0098f1] w-[240px] pt-10 pb-10 h-auto rounded-br-[48px]">
+        <div className="px-2 flex pb-5">
+          <img src={profile} className="rounded-full w-[70px] h-[70px]" />
+          <p className="text-[16px] pt-5 text-white pl-2">Welcome User</p>
+        </div>
+        <div className="text-xl text-white flex justify-around pr-10 pb-5 items-center">
+          <span
+            className={`cursor-pointer  ${
+              selectedHeader === "Hr"
+                ? "underline decoration-2 underline-offset-8 "
+                : ""
+            }`}
+            onClick={() => handleHeaderClick("Hr")}
+          >
+            Hr
+          </span>
+          <span
+            className={`cursor-pointer  ${
+              selectedHeader === "Projects"
+                ? "underline decoration-2 underline-offset-8 "
+                : ""
+            }`}
+            onClick={() => handleHeaderClick("Projects")}
+          >
+            Projects
+          </span>
+        </div>
+
         <div className="flex flex-col pr-3 text-white">
           {options.map((option, index) => (
             <div key={index}>
@@ -76,11 +109,11 @@ function SideBar() {
                 )}
               </div>
               {option.title === "Employee" && showEmployeeOptions && (
-                <div className="transition-all duration-500 ml-8">
+                <div className="transition-all duration-500 ml-8 ">
                   {employeeOptions.map((item, idx) => (
                     <div
                       key={idx}
-                      className="flex items-center transition-all duration-500 hover:bg-white text-white hover:text-[#0098f1] w-[200px] mx-0 rounded-tr-3xl rounded-br-3xl cursor-pointer"
+                      className="flex items-center transition-all duration-500 hover:bg-white text-white hover:text-[#e65f2b] w-[200px] mx-0 rounded-tr-3xl rounded-br-3xl cursor-pointer"
                     >
                       <div className="p-3 pl-4 text-xl flex items-center">
                         {item.icon}
@@ -96,7 +129,6 @@ function SideBar() {
       </div>
       <div className="ml-[240px] flex-1">
         {/* {activeTab === "RecruitmentTab" && <RecruitmentTab />} */}
-        {/* Add more conditional renderings for other components as needed */}
       </div>
     </div>
   );
