@@ -17,7 +17,11 @@ import {
 } from "react-icons/fa";
 import { MdOutlineSocialDistance } from "react-icons/md";
 import profile from "../../assets/employee/profile/profile.jpg";
-import RecruitmentTab from "./Employeetab/EmployeeTab";
+// import RecruitmentTab from "./Employeetab/RecruitmentTab";
+import AllEmployeesTab from "./Employeetab/AllEmployees";
+import LeaveRequestsTab from "./Employeetab/LeaveRequest";
+// import AttendanceTab from "./Employeetab/Attendance";
+import DepartmentTab from "./Employeetab/DepartmentList";
 
 function SideBar() {
   const [activeTab, setActiveTab] = useState("");
@@ -27,7 +31,7 @@ function SideBar() {
   const options = [
     {
       title: "HR Dashboard",
-      component: "RecruitmentTab",
+      component: "",
       icon: <FaTachometerAlt />,
     },
     { title: "Holidays", component: "", icon: <FaCalendarAlt /> },
@@ -42,10 +46,18 @@ function SideBar() {
   ];
 
   const employeeOptions = [
-    { title: "All Employees", icon: <FaUsers /> },
-    { title: "Leave Requests", icon: <FaClipboardList /> },
-    { title: "Attendance", icon: <FaCalendarCheck /> },
-    { title: "Department", icon: <FaBuilding /> },
+    { title: "All Employees", component: "AllEmployeesTab", icon: <FaUsers /> },
+    {
+      title: "Leave Requests",
+      component: "LeaveRequestsTab",
+      icon: <FaClipboardList />,
+    },
+    {
+      title: "Attendance",
+      component: "AttendanceTab",
+      icon: <FaCalendarCheck />,
+    },
+    { title: "Department", component: "DepartmentTab", icon: <FaBuilding /> },
   ];
 
   const handleOptionClick = (option) => {
@@ -57,12 +69,16 @@ function SideBar() {
     }
   };
 
+  const handleEmployeeOptionClick = (option) => {
+    setActiveTab(option.component);
+  };
+
   const handleHeaderClick = (header) => {
     setSelectedHeader(header);
   };
 
   return (
-    <div className="flex h-auto pb-10 bg-[#dbf2ff]">
+    <div className="flex h-auto pb-10 bg-[#0098f1] bg-opacity-10">
       <div className="bg-[#0098f1] w-[240px] pt-10 pb-10 h-auto rounded-br-[48px]">
         <div className="px-2 flex pb-5">
           <img src={profile} className="rounded-full w-[70px] h-[70px]" />
@@ -114,6 +130,7 @@ function SideBar() {
                     <div
                       key={idx}
                       className="flex items-center transition-all duration-500 hover:bg-white text-white hover:text-[#e65f2b] w-[200px] mx-0 rounded-tr-3xl rounded-br-3xl cursor-pointer"
+                      onClick={() => handleEmployeeOptionClick(item)}
                     >
                       <div className="p-3 pl-4 text-xl flex items-center">
                         {item.icon}
@@ -127,8 +144,12 @@ function SideBar() {
           ))}
         </div>
       </div>
-      <div className="ml-[240px] flex-1">
+      <div className="flex-1">
         {/* {activeTab === "RecruitmentTab" && <RecruitmentTab />} */}
+        {activeTab === "AllEmployeesTab" && <AllEmployeesTab />}
+        {activeTab === "LeaveRequestsTab" && <LeaveRequestsTab />}
+        {/* {activeTab === "AttendanceTab" && <AttendanceTab />} */}
+        {activeTab === "DepartmentTab" && <DepartmentTab />}
       </div>
     </div>
   );

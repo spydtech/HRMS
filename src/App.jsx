@@ -6,6 +6,7 @@ import EmployeeNavBar from "./components/home/Employeetab/EmployeeNavBar";
 import AllEmployees from "./components/home/Employeetab/AllEmployees";
 import LeaveRequest from "./components/home/Employeetab/LeaveRequest";
 import DepartmentList from "./components/home/Employeetab/DepartmentList";
+import Attendance from "./components/home/Employeetab/Attendance";
 function App() {
   return (
     <div>
@@ -17,6 +18,7 @@ function App() {
           <Route path="/allemployees" element={<AllEmployees />} />
           <Route path="/leaverequest" element={<LeaveRequest />} />
           <Route path="/departmentlist" element={<DepartmentList />} />
+          <Route path="/attendance" element={<Attendance />} />
         </Routes>
       </BrowserRouter>
     </div>

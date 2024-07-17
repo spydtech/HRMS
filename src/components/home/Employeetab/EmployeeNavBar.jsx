@@ -27,7 +27,7 @@ function EmployeeNavBar() {
 
   return (
     <>
-      <div id="main" className="bg-[#dbf2ff] h-screen">
+      <div id="main" className="bg-[#0098f1] bg-opacity-10 h-screen">
         <div
           id="topbar"
           className="flex flex-row items-center pt-2 mx-2 gap-x-10 justify-end"

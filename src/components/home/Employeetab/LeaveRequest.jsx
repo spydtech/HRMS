@@ -36,7 +36,7 @@ const sampleData = [
 function LeaveRequest() {
   return (
     <>
-      <div id="main" className="h-screen w-screen bg-[#dbf2ff] p-4">
+      <div id="main" className="h-screen w-auto bg-transparent p-4">
         <div className="ml-5 ">
           <p className="text-[#e65f2b] font-semibold">
             Employees/Leave Requests
@@ -57,56 +57,56 @@ function LeaveRequest() {
           </div>
         </div>
         <div id="table" className="overflow-x-auto">
-          <table className="min-w-full bg-white">
+          <table className="min-w-full ">
             <thead>
               <tr>
-                <th className="py-2 px-4 border-b bg-[#dbf2ff]"></th>
-                <th className="py-2 px-4 border-b bg-[#0098f1] bg-opacity-30 text-center">
+                <th className="py-4 px-4 border-b bg-transparent"></th>
+                <th className="py-4 px-4 border-b bg-[#0098f1] bg-opacity-30 text-center">
                   Name
                 </th>
-                <th className="py-2 px-4 border-b bg-[#0098f1] bg-opacity-30 text-center">
+                <th className="py-4 px-4 border-b bg-[#0098f1] bg-opacity-30 text-center">
                   Employee ID
                 </th>
-                <th className="py-2 px-4 border-b bg-[#0098f1] bg-opacity-30 text-center">
+                <th className="py-4 px-4 border-b bg-[#0098f1] bg-opacity-30 text-center">
                   Leave Type
                 </th>
-                <th className="py-2 px-4 border-b bg-[#0098f1] bg-opacity-30 text-center">
+                <th className="py-4 px-4 border-b bg-[#0098f1] bg-opacity-30 text-center">
                   Date
                 </th>
-                <th className="py-2 px-4 border-b bg-[#0098f1] bg-opacity-30 text-center">
+                <th className="py-4 px-4 border-b bg-[#0098f1] bg-opacity-30 text-center">
                   Reason
                 </th>
-                <th className="py-2 px-4 border-b bg-[#0098f1] bg-opacity-30 text-center">
+                <th className="py-4 px-4 border-b bg-[#0098f1] bg-opacity-30 text-center">
                   Action
                 </th>
               </tr>
             </thead>
             <tbody>
               {sampleData.map((employee) => (
-                <tr key={employee.id} className="bg-[#dbf2ff]">
-                  <td className="py-2 px-4 border-b text-center">
+                <tr key={employee.id} className="">
+                  <td className="py-2 px-4 border-b bg-transparent text-center">
                     <img
                       src={employee.dp}
                       alt="DP"
                       className="w-10 h-10 rounded-full"
                     />
                   </td>
-                  <td className="py-2 px-4 border-b text-center">
+                  <td className="py-2 px-4 border-b bg-transparent text-center">
                     {employee.name}
                   </td>
-                  <td className="py-2 px-4 border-b text-center">
+                  <td className="py-2 px-4 border-b bg-transparent text-center">
                     {employee.employeeId}
                   </td>
-                  <td className="py-2 px-4 border-b text-center">
+                  <td className="py-2 px-4 border-b bg-transparent text-center">
                     {employee.leaveType}
                   </td>
-                  <td className="py-2 px-4 border-b text-center">
+                  <td className="py-2 px-4 border-b bg-transparent text-center">
                     {employee.date}
                   </td>
-                  <td className="py-2 px-4 border-b text-center">
+                  <td className="py-2 px-4 border-b bg-transparent text-center">
                     {employee.reason}
                   </td>
-                  <td className="py-2 px-4 border-b text-center flex items-center justify-center space-x-2">
+                  <td className="py-2 px-4 border-b pt-7 bg-transparent text-center flex items-center justify-center space-x-2">
                     <button className="flex items-center">
                       <img src={accept} alt="Accept" className="w-6 h-6 mr-1" />
                     </button>
