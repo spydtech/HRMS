@@ -27,11 +27,10 @@ function EmployeeNavBar() {
 
   return (
     <>
-  
       <div id="main" className="">
         <div
           id="topbar"
-          className="flex flex-row items-end pt-2 mx-2 gap-x-10 justify-end"
+          className="flex flex-row items-center pt-2 mx-2 gap-x-10 justify-end"
         >
           <div className="w-[628px] h-[48px] bg-[#0098f1] rounded-xl flex justify-center items-center">
             <input

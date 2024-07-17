@@ -1,11 +1,11 @@
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 
 import Sidebar from "./components/home/Sidebar";
-import EmployeeTab from "./components/home/Employeetab/EmployeeTab";
-import EmployeeNavBar from "./components/home/Employeetab/EmployeeNavBar";
-import AllEmployees from "./components/home/Employeetab/AllEmployees";
-import LeaveRequest from "./components/home/Employeetab/LeaveRequest";
-import DepartmentList from "./components/home/Employeetab/DepartmentList";
+import EmployeeTab from "./components/home/employeetab/EmployeeTab";
+import EmployeeNavBar from "./components/home/employeetab/EmployeeNavBar";
+import AllEmployees from "./components/home/employeetab/AllEmployees";
+import LeaveRequest from "./components/home/employeetab/LeaveRequest";
+import DepartmentList from "./components/home/employeetab/DepartmentList";
 import Login from "./components/login/Login";
 function App() {
   return (

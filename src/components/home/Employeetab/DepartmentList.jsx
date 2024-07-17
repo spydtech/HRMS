@@ -36,13 +36,12 @@ const sampleData = [
     departmentHead: "Emma Watson",
     totalEmployees: 8,
   },
-  // Add more sample data as needed
 ];
 
 function LeaveRequest() {
   return (
     <>
-      <div id="main" className="h-screen w-screen bg-[#dbf2ff] p-4">
+      <div id="main" className="h-screen w-auto bg-transparentp-4">
         <div className="ml-5">
           <p className="text-[#e65f2b] font-semibold">
             Employees/DepartmentList
@@ -64,30 +63,30 @@ function LeaveRequest() {
           </div>
         </div>
         <div id="table" className="overflow-x-auto">
-          <table className="min-w-full bg-white">
+          <table className="min-w-full">
             <thead>
               <tr>
-                <th className="py-2 px-4 border-b bg-[#dbf2ff]"></th>
+                <th className="py-4 px-4 border-b bg-transparent"></th>
 
-                <th className="py-2 px-4 border-b bg-[#0098f1] bg-opacity-30 text-center">
+                <th className="py-4 px-4 border-b bg-[#0098f1] bg-opacity-30 text-center">
                   Department
                 </th>
-                <th className="py-2 px-4 border-b bg-[#0098f1] bg-opacity-30 text-center">
+                <th className="py-4 px-4 border-b bg-[#0098f1] bg-opacity-30 text-center">
                   Department Head
                 </th>
-                <th className="py-2 px-4 border-b bg-[#0098f1] bg-opacity-30 text-center">
+                <th className="py-4 px-4 border-b bg-[#0098f1] bg-opacity-30 text-center">
                   Total Employees
                 </th>
 
-                <th className="py-2 px-4 border-b bg-[#0098f1] bg-opacity-30 text-center">
+                <th className="py-4 px-4 border-b bg-[#0098f1] bg-opacity-30 text-center">
                   Action
                 </th>
               </tr>
             </thead>
             <tbody>
               {sampleData.map((employee) => (
-                <tr key={employee.id} className="bg-[#dbf2ff]">
-                  <td className="py-2 px-4 border-b text-center">
+                <tr key={employee.id} className="">
+                  <td className="py-2 px-4 border-b bg-transparent text-center">
                     <img
                       src={employee.dp}
                       alt="DP"
@@ -95,17 +94,17 @@ function LeaveRequest() {
                     />
                   </td>
 
-                  <td className="py-2 px-4 border-b text-center">
+                  <td className="py-2 px-4 border-b bg-transparent text-center">
                     {employee.department}
                   </td>
-                  <td className="py-2 px-4 border-b text-center">
+                  <td className="py-2 px-4 border-b bg-transparent text-center">
                     {employee.departmentHead}
                   </td>
-                  <td className="py-2 px-4 border-b text-center">
+                  <td className="py-2 px-4 border-b bg-transparent text-center">
                     {employee.totalEmployees}
                   </td>
 
-                  <td className="py-2 px-4 border-b text-center flex items-center justify-center space-x-2">
+                  <td className="py-2 px-4 border-b pt-6 bg-transparent text-center flex items-center justify-center space-x-2">
                     <button className="flex items-center">
                       <img src={accept} alt="Accept" className="w-6 h-6 mr-1" />
                     </button>

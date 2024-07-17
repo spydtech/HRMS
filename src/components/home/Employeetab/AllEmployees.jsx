@@ -51,95 +51,98 @@ function AllEmployees() {
 
   return (
     <>
-      <div id="main" className="h-screen w-screen bg-[#dbf2ff] p-4">
-        <div className="ml-5 ">
-          <p className="text-[#e65f2b] font-semibold">Employees/AllEmployees</p>
+      <div id="main" className=" mt-20">
+        <div className="ml-5 mb-4">
+          <p className="text-[#e65f2b] font-semibold">
+            Employees/All Employees
+          </p>
         </div>
 
-        <div className="flex justify-end mb-4">
+        <div className="flex justify-end mb-4 ">
           <div
             id="addemployee"
-            className="w-auto inline-block bg-[#0098f1] h-[48px] rounded-lg justify-end items-center"
+            className="w-auto inline-block  h-[48px] rounded-lg justify-end items-center bg-[#0098f1]"
           >
             <button
               type="button"
               className="flex justify-center items-center w-[186px] h-[48px] text-white"
             >
-              <FiPlusCircle className="text-2xl font-bold mr-2" /> Add Employee
+              <FiPlusCircle className="text-2xl font-bold mr-2 bg-[#0098f1]" /> Add Employee
             </button>
           </div>
         </div>
-        <div id="table" className="overflow-x-auto">
-          <table className="min-w-full bg-white">
+        <div id="table" className="w-full">
+          <table className="min-w-full overflow-x-auto">
             <thead>
               <tr>
-                <th className="py-2 px-4 border-b bg-[#dbf2ff] text-center">
+                <th className="py-2 px-4 border-b bg-transparent text-center">
                   <img
                     src={headerChecked ? checkbox : uncheckbox}
                     alt="Header Checkbox"
                     onClick={handleHeaderCheckboxChange}
+                    className="bg-transparent"
                   />
                 </th>
-                <th className="py-2 px-4 border-b bg-[#dbf2ff]"></th>
-                <th className="py-2 px-4 border-b bg-[#0098f1] bg-opacity-30 text-center">
+                <th className="py-4 px-8 border-b bg-transparent"></th>
+                <th className="py-4 px-8 border-b bg-[#0098f1] bg-opacity-30 text-center">
                   Name
                 </th>
-                <th className="py-2 px-4 border-b bg-[#0098f1] bg-opacity-30 text-center">
+                <th className="py-4 px-8 border-b bg-[#0098f1] bg-opacity-30 text-center">
                   Email-id
                 </th>
-                <th className="py-2 px-4 border-b bg-[#0098f1] bg-opacity-30 text-center">
+                <th className="py-4 px-8 border-b bg-[#0098f1] bg-opacity-30 text-center">
                   Phone
                 </th>
-                <th className="py-2 px-4 border-b bg-[#0098f1] bg-opacity-30 text-center">
+                <th className="py-4 px-8 border-b bg-[#0098f1] bg-opacity-30 text-center">
                   Employee ID
                 </th>
-                <th className="py-2 px-4 border-b bg-[#0098f1] bg-opacity-30 text-center">
+                <th className="py-4 px-8 border-b bg-[#0098f1] bg-opacity-30 text-center">
                   Joining Date
                 </th>
-                <th className="py-2 px-4 border-b bg-[#0098f1] bg-opacity-30 text-center">
+                <th className="py-4 px-8 border-b bg-[#0098f1] bg-opacity-30 text-center">
                   Role
                 </th>
-                <th className="py-2 px-4 border-b bg-[#0098f1] bg-opacity-30 text-center">
+                <th className="py-4 px-8 border-b bg-[#0098f1] bg-opacity-30 text-center">
                   Action
                 </th>
               </tr>
             </thead>
             <tbody>
               {sampleData.map((employee) => (
-                <tr key={employee.id} className="bg-[#dbf2ff]">
-                  <td className="py-2 px-4 border-b text-center">
+                <tr key={employee.id} className="">
+                  <td className="py-2 px-4 border-b text-center bg-transparent">
                     <img
                       src={isChecked[employee.id] ? checkbox : uncheckbox}
                       alt="Checkbox"
                       onClick={() => handleCheckboxChange(employee.id)}
                     />
                   </td>
-                  <td className="py-2 px-4 border-b text-center">
+                  <td className="py-2 px-4 border-b bg-transparent text-center">
                     <img
                       src={employee.dp}
                       alt="DP"
                       className="w-10 h-10 rounded-full"
                     />
                   </td>
-                  <td className="py-2 px-4 border-b text-center">
+                  <td className="py-2 px-4 bg-transparent border-b text-center">
                     {employee.name}
                   </td>
-                  <td className="py-2 px-4 border-b text-center">
+                  <td className="py-2 px-4 bg-transparent border-b text-center">
                     {employee.email}
                   </td>
-                  <td className="py-2 px-4 border-b text-center">
+                  <td className="py-2 px-4 bg-transparent border-b text-center">
                     {employee.phone}
                   </td>
-                  <td className="py-2 px-4 border-b text-center">
+                  <td className="py-2 px-4 bg-transparent border-b text-center">
                     {employee.employeeId}
                   </td>
-                  <td className="py-2 px-4 border-b text-center">
+                  <td className="py-2 px-4 bg-transparent border-b text-center">
                     {employee.joiningDate}
                   </td>
-                  <td className="py-2 px-4 border-b text-center">
+                  <td className="py-2 px-4  bg-transparent border-b text-center">
                     {employee.role}
                   </td>
-                  <td className="py-2 px-4 border-b text-center flex items-center space-x-2">
+                  <td className="py-2 px-4 border-b bg-transparent text-center flex justify-center space-x-2">
                     <button className="text-blue-500 flex py-3 items-center">
                       <FiEdit className="mr-1" />
                     </button>
