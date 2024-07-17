@@ -1,17 +1,13 @@
 import React, { useState } from "react";
-import message from "../../../assets/employee/properties/message.png";
-import folder from "../../../assets/employee/properties/folder.png";
-import mail from "../../../assets/employee/properties/mail.png";
-import bell from "../../../assets/employee/properties/bell.png";
-import filter from "../../../assets/employee/properties/filter.png";
-import { FaCalendarDay } from "react-icons/fa";
-
-//hovered images
-import hovermessage from "../../../assets/employee/hoverproperties/message.png";
-import hoverfolder from "../../../assets/employee/hoverproperties/folder.png";
-import hovermail from "../../../assets/employee/hoverproperties/mail.png";
-import hoverbell from "../../../assets/employee/hoverproperties/bell.png";
-import hoverfilter from "../../../assets/employee/hoverproperties/filter.png";
+import {
+  FaFolder,
+  FaEnvelope,
+  FaCommentDots,
+  FaBell,
+  FaFilter,
+  FaCalendarDay,
+} from "react-icons/fa";
+import { TiMessages } from "react-icons/ti";
 
 function EmployeeNavBar() {
   const [hoveredIcon, setHoveredIcon] = useState("");
@@ -23,6 +19,11 @@ function EmployeeNavBar() {
   const handleMouseLeave = () => {
     setHoveredIcon("");
   };
+
+  const iconStyle = (iconName) => ({
+    color: hoveredIcon === iconName ? "#FF6A00" : "#0098F1",
+    fontSize: "1.5rem",
+  });
 
   return (
     <>
@@ -42,40 +43,33 @@ function EmployeeNavBar() {
             id="icons"
             className="w-[300px] h-[48px] text-white rounded-xl flex justify-around items-center"
           >
-            <img
-              src={hoveredIcon === "folder" ? hoverfolder : folder}
-              alt="folder"
-              className="w-6 h-6"
+            <FaFolder
+              style={iconStyle("folder")}
               onMouseEnter={() => handleMouseEnter("folder")}
               onMouseLeave={handleMouseLeave}
             />
-            <FaCalendarDay className="w-6 h-6 text-[#0098f1] hover:text-orange-500" />
-            <img
-              src={hoveredIcon === "message" ? hovermessage : message}
-              alt="message"
-              className="w-6 h-6"
+            <FaCalendarDay
+              style={iconStyle("calendar")}
+              onMouseEnter={() => handleMouseEnter("calendar")}
+              onMouseLeave={handleMouseLeave}
+            />
+            <TiMessages
+              style={iconStyle("message")}
               onMouseEnter={() => handleMouseEnter("message")}
               onMouseLeave={handleMouseLeave}
             />
-
-            <img
-              src={hoveredIcon === "mail" ? hovermail : mail}
-              alt="mail"
-              className="w-6 h-6"
+            <FaEnvelope
+              style={iconStyle("mail")}
               onMouseEnter={() => handleMouseEnter("mail")}
               onMouseLeave={handleMouseLeave}
             />
-            <img
-              src={hoveredIcon === "bell" ? hoverbell : bell}
-              alt="bell"
-              className="w-6 h-6"
+            <FaBell
+              style={iconStyle("bell")}
               onMouseEnter={() => handleMouseEnter("bell")}
               onMouseLeave={handleMouseLeave}
             />
-            <img
-              src={hoveredIcon === "filter" ? hoverfilter : filter}
-              alt="filter"
-              className="w-6 h-6"
+            <FaFilter
+              style={iconStyle("filter")}
               onMouseEnter={() => handleMouseEnter("filter")}
               onMouseLeave={handleMouseLeave}
             />

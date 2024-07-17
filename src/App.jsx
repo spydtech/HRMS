@@ -15,7 +15,7 @@ function App() {
           <Route path="/employee" element={<EmployeeTab />} />
           <Route path="/navbar" element={<EmployeeNavBar />} />
           <Route path="/allemployees" element={<AllEmployees />} />
-          <Route path="/leaveRequest" element={<LeaveRequest />} />
+          <Route path="/leaverequest" element={<LeaveRequest />} />
           <Route path="/departmentlist" element={<DepartmentList />} />
         </Routes>
       </BrowserRouter>
