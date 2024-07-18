@@ -41,7 +41,7 @@ const sampleData = [
 function LeaveRequest() {
   return (
     <>
-      <div id="main" className="h-screen w-auto bg-transparentp-4">
+      <div id="main" className="h-screen w-auto bg-transparent p-4">
         <div className="ml-5">
           <p className="text-[#e65f2b] font-semibold">
             Employees/DepartmentList
