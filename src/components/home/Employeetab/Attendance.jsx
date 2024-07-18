@@ -1,6 +1,6 @@
 import React from "react";
 import { FiCheckCircle } from "react-icons/fi"; // Importing FiCheckCircle for the tick icon
-
+import SideBar from "../Sidebar";
 const sampleData = [
   {
     id: 1,
@@ -25,18 +25,18 @@ const sampleData = [
       { day: 17, status: "absent" },
       { day: 18, status: "present" },
       { day: 19, status: "present" },
-      { day: 20, status: "weekend" },
-      { day: 21, status: "weekend" },
-      { day: 22, status: "absent" },
-      { day: 23, status: "present" },
-      { day: 24, status: "present" },
-      { day: 25, status: "present" },
-      { day: 26, status: "present" },
-      { day: 27, status: "weekend" },
-      { day: 28, status: "weekend" },
-      { day: 29, status: "present" },
-      { day: 30, status: "holiday" },
-      { day: 31, status: "present" },
+      { day: 20, status: "" },
+      { day: 21, status: "" },
+      { day: 22, status: " " },
+      { day: 23, status: "" },
+      { day: 24, status: "" },
+      { day: 25, status: "" },
+      { day: 26, status: "" },
+      { day: 27, status: "" },
+      { day: 28, status: "" },
+      { day: 29, status: "" },
+      { day: 30, status: "" },
+      { day: 31, status: "" },
     ],
   },
   {
@@ -62,18 +62,18 @@ const sampleData = [
       { day: 17, status: "absent" },
       { day: 18, status: "present" },
       { day: 19, status: "present" },
-      { day: 20, status: "weekend" },
-      { day: 21, status: "weekend" },
-      { day: 22, status: "absent" },
-      { day: 23, status: "present" },
-      { day: 24, status: "present" },
-      { day: 25, status: "present" },
-      { day: 26, status: "present" },
-      { day: 27, status: "weekend" },
-      { day: 28, status: "weekend" },
-      { day: 29, status: "present" },
-      { day: 30, status: "holiday" },
-      { day: 31, status: "present" },
+      { day: 20, status: "" },
+      { day: 21, status: "" },
+      { day: 22, status: " " },
+      { day: 23, status: "" },
+      { day: 24, status: "" },
+      { day: 25, status: "" },
+      { day: 26, status: "" },
+      { day: 27, status: "" },
+      { day: 28, status: "" },
+      { day: 29, status: "" },
+      { day: 30, status: "" },
+      { day: 31, status: "" },
     ],
   },
 ];
@@ -105,9 +105,11 @@ function Attendance() {
 
   return (
     <>
+      <SideBar />
       <div
         id="main"
-        className="h-screen w-screen bg-[#0098f1] bg-opacity-10 p-4"
+        className="h-screen w-[1000px] p-4 mt-24 ml-[240px]"
+        // className="h-screen w-screen bg-[#0098f1] bg-opacity-10 p-4 mt-24"
       >
         <div className="ml-5">
           <p className="text-[#e65f2b] font-semibold">Employees/Attendance</p>

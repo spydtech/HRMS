@@ -1,53 +1,38 @@
-import React, { useState } from "react";
-import { FiPlusCircle } from "react-icons/fi";
-import accept from "../../../assets/employee/leaves/accept.png";
-import reject from "../../../assets/employee/leaves/reject.png";
-
-const sampleData = [
-  {
-    id: 1,
-    dp: "https://via.placeholder.com/40",
-    name: "John Doe",
-    email: "john@example.com",
-    phone: "123-456-7890",
-    employeeId: "EMP001",
-    joiningDate: "2023-01-01",
-    role: "Developer",
-    leaveType: "Sick Leave",
-    date: "2023-05-15",
-    reason: "Fever",
-    department: "Engineering",
-    departmentHead: "Jack Johnson",
-    totalEmployees: 10,
-  },
-  {
-    id: 2,
-    dp: "https://via.placeholder.com/40",
-    name: "Jane Smith",
-    email: "jane@example.com",
-    phone: "098-765-4321",
-    employeeId: "EMP002",
-    joiningDate: "2023-02-01",
-    role: "Designer",
-    leaveType: "Casual Leave",
-    date: "2023-07-20",
-    reason: "Travel",
-    department: "Design",
-    departmentHead: "Emma Watson",
-    totalEmployees: 8,
-  },
-];
-
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { MdDelete, MdEdit } from "react-icons/md";
+import { FiPlusCircle, FiEdit, FiTrash2 } from "react-icons/fi";
+import SideBar from "../Sidebar";
 function DepartmentList() {
+  const [departments, setDepartments] = useState([]);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const storedDepartments =
+      JSON.parse(localStorage.getItem("departments")) || [];
+    setDepartments(storedDepartments);
+  }, []);
+
+  const handleDelete = (id) => {
+    const updatedDepartments = departments.filter(
+      (department) => department.id !== id
+    );
+    setDepartments(updatedDepartments);
+    localStorage.setItem("departments", JSON.stringify(updatedDepartments));
+  };
+
   return (
     <>
-      <div id="main" className=" mt-20 bg-transparent ">
+      <SideBar />
+      <div
+        id="main"
+        className="h-screen w-auto bg-transparent p-4 mt-24 ml-[240px]"
+      >
         <div className="ml-5">
           <p className="text-[#e65f2b] font-semibold">
             Employees/DepartmentList
           </p>
         </div>
-
         <div className="flex justify-end mb-4">
           <div
             id="addemployee"
@@ -56,6 +41,7 @@ function DepartmentList() {
             <button
               type="button"
               className="flex justify-center items-center w-[228px] h-[48px] text-white"
+              onClick={() => navigate("/add-department")}
             >
               <FiPlusCircle className="text-2xl font-bold mr-2" /> Add New
               Department
@@ -66,50 +52,46 @@ function DepartmentList() {
           <table className="min-w-full overflow-x-auto">
             <thead>
               <tr>
-                <th className="py-4 px-4 border-b bg-transparent"></th>
-
-                <th className="py-4 px-4 border-b bg-[#0098f1] bg-opacity-30 text-center">
-                  Department
+                <th className="py-4 px-16 border-b bg-[#0098f1] bg-opacity-30 text-center">
+                  Department Name
                 </th>
-                <th className="py-4 px-4 border-b bg-[#0098f1] bg-opacity-30 text-center">
+                <th className="py-4 px-16 border-b bg-[#0098f1] bg-opacity-30 text-center">
                   Department Head
                 </th>
-                <th className="py-4 px-4 border-b bg-[#0098f1] bg-opacity-30 text-center">
+                <th className="py-4 px-16 border-b bg-[#0098f1] bg-opacity-30 text-center">
                   Total Employees
                 </th>
-
-                <th className="py-4 px-4 border-b bg-[#0098f1] bg-opacity-30 text-center">
+                <th className="py-4 px-16 border-b bg-[#0098f1] bg-opacity-30 text-center">
                   Action
                 </th>
               </tr>
             </thead>
             <tbody>
-              {sampleData.map((employee) => (
-                <tr key={employee.id} className="">
+              {departments.map((department) => (
+                <tr key={department.id}>
                   <td className="py-2 px-4 border-b bg-transparent text-center">
-                    <img
-                      src={employee.dp}
-                      alt="DP"
-                      className="w-10 h-10 rounded-full"
-                    />
-                  </td>
-
-                  <td className="py-2 px-4 border-b bg-transparent text-center">
-                    {employee.department}
+                    {department.department}
                   </td>
                   <td className="py-2 px-4 border-b bg-transparent text-center">
-                    {employee.departmentHead}
+                    {department.departmentHead}
                   </td>
                   <td className="py-2 px-4 border-b bg-transparent text-center">
-                    {employee.totalEmployees}
+                    {department.totalEmployees}
                   </td>
-
                   <td className="py-2 px-4 border-b pt-6 bg-transparent text-center flex items-center justify-center space-x-2">
-                    <button className="flex items-center">
-                      <img src={accept} alt="Accept" className="w-6 h-6 mr-1" />
+                    <button
+                      onClick={() => handleDelete(department.id)}
+                      className="flex items-center"
+                    >
+                      <MdDelete className="text-red-500 text-2xl mr-1" />
                     </button>
-                    <button className="flex items-center">
-                      <img src={reject} alt="Reject" className="w-6 h-6 mr-1" />
+                    <button
+                      onClick={() =>
+                        navigate(`/edit-departmentList/${department.id}`)
+                      }
+                      className="flex items-center"
+                    >
+                      <MdEdit className="text-blue-500 text-2xl mr-1" />
                     </button>
                   </td>
                 </tr>

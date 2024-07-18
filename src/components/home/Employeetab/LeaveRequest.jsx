@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-import { FiPlusCircle } from "react-icons/fi";
-import accept from "../../../assets/employee/leaves/accept.png";
-import reject from "../../../assets/employee/leaves/reject.png";
-
+import { FiPlusCircle, FiCheckCircle, FiXCircle } from "react-icons/fi";
+import SideBar from "../Sidebar";
 const sampleData = [
   {
     id: 1,
@@ -36,7 +34,8 @@ const sampleData = [
 function LeaveRequest() {
   return (
     <>
-      <div id="main" className="h-screen w-full bg-transparent p-4 mt-20">
+      <SideBar />
+      <div id="main" className="h-screen  bg-transparent p-4 mt-24 ml-[240px]">
         <div className="ml-5 ">
           <p className="text-[#e65f2b] font-semibold">
             Employees/Leave Requests
@@ -67,7 +66,7 @@ function LeaveRequest() {
                 <th className="py-4 px-12 border-b bg-[#0098f1] bg-opacity-30 text-center">
                   Employee ID
                 </th>
-                <th className="py-4 px-12 border-b bg-[#0098f1] bg-opacity-30 text-center">
+                <th className="py-4 px-6 border-b bg-[#0098f1] bg-opacity-30 text-center">
                   Leave Type
                 </th>
                 <th className="py-4 px-12 border-b bg-[#0098f1] bg-opacity-30 text-center">
@@ -108,10 +107,10 @@ function LeaveRequest() {
                   </td>
                   <td className="py-2 px-4 border-b pt-7 bg-transparent text-center flex items-center justify-center space-x-2">
                     <button className="flex items-center">
-                      <img src={accept} alt="Accept" className="w-6 h-6 mr-1" />
+                      <FiCheckCircle className="text-green-500 text-2xl" />
                     </button>
                     <button className="flex items-center">
-                      <img src={reject} alt="Reject" className="w-6 h-6 mr-1" />
+                      <FiXCircle className="text-red-500 text-2xl" />
                     </button>
                   </td>
                 </tr>
