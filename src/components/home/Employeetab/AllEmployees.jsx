@@ -51,31 +51,32 @@ function AllEmployees() {
 
   return (
     <>
-      <div id="main" className="h-screen w-auto  p-4">
+      <div id="main" className=" mt-20">
         <div className="ml-5 mb-4">
           <p className="text-[#e65f2b] font-semibold">
             Employees/All Employees
           </p>
         </div>
 
-        <div className="flex justify-end mb-4">
+        <div className="flex justify-end mb-4 ">
           <div
             id="addemployee"
-            className="w-auto inline-block bg-[#0098f1] h-[48px] rounded-lg justify-end items-center"
+            className="w-auto inline-block  h-[48px] rounded-lg justify-end items-center bg-[#0098f1]"
           >
             <button
               type="button"
               className="flex justify-center items-center w-[186px] h-[48px] text-white"
             >
-              <FiPlusCircle className="text-2xl font-bold mr-2" /> Add Employee
+              <FiPlusCircle className="text-2xl font-bold mr-2 bg-[#0098f1]" />{" "}
+              Add Employee
             </button>
           </div>
         </div>
-        <div id="table" className="">
-          <table className="min-w-full overflow-x-auto">
+        <div id="table" className="w-full">
+          <table className="min-w-full  overflow-x-auto">
             <thead>
               <tr>
-                <th className="py-2 px-4 border-b bg-transparent text-center">
+                <th className="py-2 px-4 te border-b bg-transparent text-center">
                   <img
                     src={headerChecked ? checkbox : uncheckbox}
                     alt="Header Checkbox"
@@ -83,26 +84,26 @@ function AllEmployees() {
                     className="bg-transparent"
                   />
                 </th>
-                <th className="py-4 px-4 border-b bg-transparent"></th>
-                <th className="py-4 px-4 border-b bg-[#0098f1] bg-opacity-30  text-center">
+                <th className="py-4 px-8 border-b bg-transparent"></th>
+                <th className="py-4 px-8 border-b bg-[#0098f1] bg-opacity-30 text-center">
                   Name
                 </th>
-                <th className="py-4 px-4 border-b bg-[#0098f1] bg-opacity-30 text-center">
+                <th className="py-4 px-8 border-b bg-[#0098f1] bg-opacity-30 text-center">
                   Email-id
                 </th>
-                <th className="py-4 px-4 border-b bg-[#0098f1] bg-opacity-30 text-center">
+                <th className="py-4 px-8 border-b bg-[#0098f1] bg-opacity-30 text-center">
                   Phone
                 </th>
-                <th className="py-4 px-4 border-b bg-[#0098f1] bg-opacity-30 text-center">
+                <th className="py-4 px-8 border-b bg-[#0098f1] bg-opacity-30 text-center">
                   Employee ID
                 </th>
-                <th className="py-4 px-4 border-b bg-[#0098f1] bg-opacity-30 text-center">
+                <th className="py-4 px-8 border-b bg-[#0098f1] bg-opacity-30 text-center">
                   Joining Date
                 </th>
-                <th className="py-4 px-4 border-b bg-[#0098f1] bg-opacity-30 text-center">
+                <th className="py-4 px-8 border-b bg-[#0098f1] bg-opacity-30 text-center">
                   Role
                 </th>
-                <th className="py-4 px-4 border-b bg-[#0098f1] bg-opacity-30 text-center">
+                <th className="py-4 px-8 border-b bg-[#0098f1] bg-opacity-30 text-center">
                   Action
                 </th>
               </tr>
@@ -124,7 +125,7 @@ function AllEmployees() {
                       className="w-10 h-10 rounded-full"
                     />
                   </td>
-                  <td className="py-2 px-4 bg-transparent  border-b text-center">
+                  <td className="py-2 px-4 bg-transparent border-b text-center">
                     {employee.name}
                   </td>
                   <td className="py-2 px-4 bg-transparent border-b text-center">

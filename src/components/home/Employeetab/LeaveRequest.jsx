@@ -36,14 +36,14 @@ const sampleData = [
 function LeaveRequest() {
   return (
     <>
-      <div id="main" className="h-screen w-auto bg-transparent p-4">
+      <div id="main" className="h-screen w-full bg-transparent p-4 mt-20">
         <div className="ml-5 ">
           <p className="text-[#e65f2b] font-semibold">
             Employees/Leave Requests
           </p>
         </div>
 
-        <div className="flex justify-end mb-4">
+        <div className="flex justify-end mb-4 ">
           <div
             id="addemployee"
             className="w-auto inline-block bg-[#0098f1] h-[48px] rounded-lg justify-end items-center"
@@ -57,26 +57,26 @@ function LeaveRequest() {
           </div>
         </div>
         <div id="table" className="overflow-x-auto">
-          <table className="min-w-full ">
+          <table className="">
             <thead>
               <tr>
-                <th className="py-4 px-4 border-b bg-transparent"></th>
-                <th className="py-4 px-4 border-b bg-[#0098f1] bg-opacity-30 text-center">
+                <th className="py-4 px-12 border-b bg-transparent"></th>
+                <th className="py-4 px-12 border-b bg-[#0098f1] bg-opacity-30 text-center">
                   Name
                 </th>
-                <th className="py-4 px-4 border-b bg-[#0098f1] bg-opacity-30 text-center">
+                <th className="py-4 px-12 border-b bg-[#0098f1] bg-opacity-30 text-center">
                   Employee ID
                 </th>
-                <th className="py-4 px-4 border-b bg-[#0098f1] bg-opacity-30 text-center">
+                <th className="py-4 px-12 border-b bg-[#0098f1] bg-opacity-30 text-center">
                   Leave Type
                 </th>
-                <th className="py-4 px-4 border-b bg-[#0098f1] bg-opacity-30 text-center">
+                <th className="py-4 px-12 border-b bg-[#0098f1] bg-opacity-30 text-center">
                   Date
                 </th>
-                <th className="py-4 px-4 border-b bg-[#0098f1] bg-opacity-30 text-center">
+                <th className="py-4 px-12 border-b bg-[#0098f1] bg-opacity-30 text-center">
                   Reason
                 </th>
-                <th className="py-4 px-4 border-b bg-[#0098f1] bg-opacity-30 text-center">
+                <th className="py-4 px-12 border-b bg-[#0098f1] bg-opacity-30 text-center">
                   Action
                 </th>
               </tr>

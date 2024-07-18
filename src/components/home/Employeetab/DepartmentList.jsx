@@ -38,10 +38,10 @@ const sampleData = [
   },
 ];
 
-function LeaveRequest() {
+function DepartmentList() {
   return (
     <>
-      <div id="main" className="h-screen w-auto bg-transparent p-4">
+      <div id="main" className=" mt-20 bg-transparent ">
         <div className="ml-5">
           <p className="text-[#e65f2b] font-semibold">
             Employees/DepartmentList
@@ -62,8 +62,8 @@ function LeaveRequest() {
             </button>
           </div>
         </div>
-        <div id="table" className="overflow-x-auto">
-          <table className="min-w-full">
+        <div id="table" className="w-full">
+          <table className="min-w-full overflow-x-auto">
             <thead>
               <tr>
                 <th className="py-4 px-4 border-b bg-transparent"></th>
@@ -122,4 +122,4 @@ function LeaveRequest() {
   );
 }
 
-export default LeaveRequest;
+export default DepartmentList;

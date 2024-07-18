@@ -22,6 +22,7 @@ import AllEmployeesTab from "./Employeetab/AllEmployees";
 import LeaveRequestsTab from "./Employeetab/LeaveRequest";
 // import AttendanceTab from "./Employeetab/Attendance";
 import DepartmentTab from "./Employeetab/DepartmentList";
+import NavBar from "./Employeetab/EmployeeNavBar";
 
 function SideBar() {
   const [activeTab, setActiveTab] = useState("");
@@ -78,80 +79,91 @@ function SideBar() {
   };
 
   return (
-    <div className="flex h-auto pb-10 bg-[#0098f1] bg-opacity-10">
-      <div className="bg-[#0098f1] w-[240px] pt-10 pb-10 h-auto rounded-br-[48px]">
-        <div className="px-2 flex pb-5">
-          <img src={profile} className="rounded-full w-[70px] h-[70px]" />
-          <p className="text-[16px] pt-5 text-white pl-2">Welcome User</p>
-        </div>
-        <div className="text-xl text-white flex justify-around pr-10 pb-5 items-center">
-          <span
-            className={`cursor-pointer  ${
-              selectedHeader === "Hr"
-                ? "underline decoration-2 underline-offset-8 "
-                : ""
-            }`}
-            onClick={() => handleHeaderClick("Hr")}
-          >
-            Hr
-          </span>
-          <span
-            className={`cursor-pointer  ${
-              selectedHeader === "Projects"
-                ? "underline decoration-2 underline-offset-8 "
-                : ""
-            }`}
-            onClick={() => handleHeaderClick("Projects")}
-          >
-            Projects
-          </span>
-        </div>
-
-        <div className="flex flex-col pr-3 text-white">
-          {options.map((option, index) => (
-            <div key={index}>
-              <div
-                className="flex items-center transition-all duration-500 hover:bg-white text-white hover:text-[#e65f2b] w-[200px] mx-0 rounded-tr-3xl rounded-br-3xl cursor-pointer"
-                onClick={() => handleOptionClick(option)}
-              >
-                <div className="p-3 pl-4 text-xl flex items-center">
-                  {option.icon}
-                  <span className="ml-3">{option.title}</span>
-                </div>
-                {option.title === "Employee" && (
-                  <div className="ml-auto pr-4">
-                    {showEmployeeOptions ? <FaChevronUp /> : <FaChevronDown />}
-                  </div>
-                )}
-              </div>
-              {option.title === "Employee" && showEmployeeOptions && (
-                <div className="transition-all duration-500 ml-8 ">
-                  {employeeOptions.map((item, idx) => (
-                    <div
-                      key={idx}
-                      className="flex items-center transition-all duration-500 hover:bg-white text-white hover:text-[#e65f2b] w-[200px] mx-0 rounded-tr-3xl rounded-br-3xl cursor-pointer"
-                      onClick={() => handleEmployeeOptionClick(item)}
-                    >
-                      <div className="p-3 pl-4 text-xl flex items-center">
-                        {item.icon}
-                        <span className="ml-3">{item.title}</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              )}
+    <>
+      <div className="relative">
+        <NavBar />
+      </div>
+      <div className="absolute top-0">
+        <div className="flex h-auto pb-10 ">
+          <div className="bg-[#0098f1] w-[240px] pt-10 pb-10 h-auto rounded-br-[48px]">
+            <div className="px-2 flex pb-5">
+              <img src={profile} className="rounded-full w-[70px] h-[70px]" />
+              <p className="text-[16px] pt-5 text-white pl-2">Welcome User</p>
             </div>
-          ))}
+            <div className="text-xl text-white flex justify-around pr-10 pb-5 items-center">
+              <span
+                className={`cursor-pointer  ${
+                  selectedHeader === "Hr"
+                    ? "underline decoration-2 underline-offset-8 "
+                    : ""
+                }`}
+                onClick={() => handleHeaderClick("Hr")}
+              >
+                Hr
+              </span>
+              <span
+                className={`cursor-pointer  ${
+                  selectedHeader === "Projects"
+                    ? "underline decoration-2 underline-offset-8 "
+                    : ""
+                }`}
+                onClick={() => handleHeaderClick("Projects")}
+              >
+                Projects
+              </span>
+            </div>
+
+            <div className="flex flex-col pr-3 text-white">
+              {options.map((option, index) => (
+                <div key={index}>
+                  <div
+                    className="flex items-center transition-all duration-500 hover:bg-white text-white hover:text-[#e65f2b] w-[200px] mx-0 rounded-tr-3xl rounded-br-3xl cursor-pointer"
+                    onClick={() => handleOptionClick(option)}
+                  >
+                    <div className="p-3 pl-4 text-xl flex items-center">
+                      {option.icon}
+                      <span className="ml-3">{option.title}</span>
+                    </div>
+                    {option.title === "Employee" && (
+                      <div className="ml-auto pr-4">
+                        {showEmployeeOptions ? (
+                          <FaChevronUp />
+                        ) : (
+                          <FaChevronDown />
+                        )}
+                      </div>
+                    )}
+                  </div>
+                  {option.title === "Employee" && showEmployeeOptions && (
+                    <div className="transition-all duration-500 ml-8 ">
+                      {employeeOptions.map((item, idx) => (
+                        <div
+                          key={idx}
+                          className="flex items-center transition-all duration-500 hover:bg-white text-white hover:text-[#e65f2b] w-[200px] mx-0 rounded-tr-3xl rounded-br-3xl cursor-pointer"
+                          onClick={() => handleEmployeeOptionClick(item)}
+                        >
+                          <div className="p-3 pl-4 text-xl flex items-center">
+                            {item.icon}
+                            <span className="ml-3">{item.title}</span>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="flex-1 ">
+            {/* {activeTab === "RecruitmentTab" && <RecruitmentTab />} */}
+            {activeTab === "AllEmployeesTab" && <AllEmployeesTab />}
+            {activeTab === "LeaveRequestsTab" && <LeaveRequestsTab />}
+            {/* {activeTab === "AttendanceTab" && <AttendanceTab />} */}
+            {activeTab === "DepartmentTab" && <DepartmentTab />}
+          </div>
         </div>
       </div>
-      <div className="flex-1">
-        {/* {activeTab === "RecruitmentTab" && <RecruitmentTab />} */}
-        {activeTab === "AllEmployeesTab" && <AllEmployeesTab />}
-        {activeTab === "LeaveRequestsTab" && <LeaveRequestsTab />}
-        {/* {activeTab === "AttendanceTab" && <AttendanceTab />} */}
-        {activeTab === "DepartmentTab" && <DepartmentTab />}
-      </div>
-    </div>
+    </>
   );
 }
 
