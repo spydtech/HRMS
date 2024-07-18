@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { FiPlusCircle } from "react-icons/fi";
+import { MdDelete } from "react-icons/md";
 import accept from "../../../assets/employee/leaves/accept.png";
 import reject from "../../../assets/employee/leaves/reject.png";
-
+import Delete from "../../../assets/employee/leaves/delete.png"
 const sampleData = [
   {
     id: 1,
@@ -41,7 +42,7 @@ const sampleData = [
 function LeaveRequest() {
   return (
     <>
-      <div id="main" className="h-screen w-auto bg-transparentp-4">
+      <div id="main" className="h-screen w-auto bg-transparentp-4 mt-24 ml-8">
         <div className="ml-5">
           <p className="text-[#e65f2b] font-semibold">
             Employees/DepartmentList
@@ -57,7 +58,7 @@ function LeaveRequest() {
               type="button"
               className="flex justify-center items-center w-[228px] h-[48px] text-white"
             >
-              <FiPlusCircle className="text-2xl font-bold mr-2" /> Add New
+              <MdDelete className="text-2xl font-bold mr-2" /> Add New
               Department
             </button>
           </div>
@@ -66,19 +67,19 @@ function LeaveRequest() {
           <table className="min-w-full">
             <thead>
               <tr>
-                <th className="py-4 px-4 border-b bg-transparent"></th>
+                {/* <th className="py-4 px-16 border-b bg-transparent"></th> */}
 
-                <th className="py-4 px-4 border-b bg-[#0098f1] bg-opacity-30 text-center">
-                  Department
+                <th className="py-4 px-16 border-b bg-[#0098f1] bg-opacity-30 text-center">
+                  Department Name
                 </th>
-                <th className="py-4 px-4 border-b bg-[#0098f1] bg-opacity-30 text-center">
+                <th className="py-4 px-16 border-b bg-[#0098f1] bg-opacity-30 text-center">
                   Department Head
                 </th>
-                <th className="py-4 px-4 border-b bg-[#0098f1] bg-opacity-30 text-center">
+                <th className="py-4 px-16 border-b bg-[#0098f1] bg-opacity-30 text-center">
                   Total Employees
                 </th>
 
-                <th className="py-4 px-4 border-b bg-[#0098f1] bg-opacity-30 text-center">
+                <th className="py-4 px-16 border-b bg-[#0098f1] bg-opacity-30 text-center">
                   Action
                 </th>
               </tr>
@@ -86,13 +87,13 @@ function LeaveRequest() {
             <tbody>
               {sampleData.map((employee) => (
                 <tr key={employee.id} className="">
-                  <td className="py-2 px-4 border-b bg-transparent text-center">
+                  {/* <td className="py-2 px-4 border-b bg-transparent text-center">
                     <img
                       src={employee.dp}
                       alt="DP"
                       className="w-10 h-10 rounded-full"
                     />
-                  </td>
+                  </td> */}
 
                   <td className="py-2 px-4 border-b bg-transparent text-center">
                     {employee.department}
@@ -109,7 +110,7 @@ function LeaveRequest() {
                       <img src={accept} alt="Accept" className="w-6 h-6 mr-1" />
                     </button>
                     <button className="flex items-center">
-                      <img src={reject} alt="Reject" className="w-6 h-6 mr-1" />
+                      <img src={Delete} alt="Reject" className="w-6 h-6 mr-1 bg-[#FF3636]" />
                     </button>
                   </td>
                 </tr>

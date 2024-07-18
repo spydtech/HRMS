@@ -20,7 +20,7 @@ import profile from "../../assets/employee/profile/profile.jpg";
 // import RecruitmentTab from "./Employeetab/RecruitmentTab";
 import AllEmployeesTab from "./employeetab/AllEmployees";
 import LeaveRequestsTab from "./employeetab/LeaveRequest";
-// import AttendanceTab from "./Employeetab/Attendance";
+import AttendanceTab from "./employeetab/Attendance";
 import DepartmentTab from "./employeetab/DepartmentList";
 import NavBar from "./employeetab/EmployeeNavBar";
 
@@ -157,7 +157,7 @@ function SideBar() {
         {/* {activeTab === "RecruitmentTab" && <RecruitmentTab />} */}
         {activeTab === "AllEmployeesTab" && <AllEmployeesTab />}
         {activeTab === "LeaveRequestsTab" && <LeaveRequestsTab />}
-        {/* {activeTab === "AttendanceTab" && <AttendanceTab />} */}
+        {activeTab === "AttendanceTab" && <AttendanceTab />}
         {activeTab === "DepartmentTab" && <DepartmentTab />}
       </div>
     </div>

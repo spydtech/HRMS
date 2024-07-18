@@ -36,7 +36,7 @@ const sampleData = [
 function LeaveRequest() {
   return (
     <>
-      <div id="main" className="h-screen w-full bg-transparent p-4 mt-20">
+      <div id="main" className="h-screen w-full bg-transparent p-4 mt-24">
         <div className="ml-5 ">
           <p className="text-[#e65f2b] font-semibold">
             Employees/Leave Requests

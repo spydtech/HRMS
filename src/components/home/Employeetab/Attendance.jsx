@@ -107,7 +107,8 @@ function Attendance() {
     <>
       <div
         id="main"
-        className="h-screen w-screen bg-[#0098f1] bg-opacity-10 p-4"
+        className="h-screen w-screen p-4 mt-24"
+        // className="h-screen w-screen bg-[#0098f1] bg-opacity-10 p-4 mt-24"
       >
         <div className="ml-5">
           <p className="text-[#e65f2b] font-semibold">Employees/Attendance</p>
