@@ -1,19 +1,60 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-
+const ExpensesList = [
+  {
+      "item":"Items",
+      "orderBy":"Ava Alexander",
+      "from":"Flipkart India",
+      "date":"07,Mar,2021",
+      "paidBy":"/images/Frame_masterCard.png",
+      "status":"Approved",
+      "amount":"$205"
+  },
+  {
+      "item":"Items",
+      "orderBy":"Ava Alexander",
+      "from":"Flipkart India",
+      "date":"07,Mar,2021",
+      "paidBy":"/images/Frame_Paypal.png",
+      "status":"Pending",
+      "amount":"$205"
+  },
+  {
+      "item":"Items",
+      "orderBy":"Ava Alexander",
+      "from":"Flipkart India",
+      "date":"07,Mar,2021",
+      "paidBy":"/images/Frame_Paypal.png",
+      "status":"Approved",
+      "amount":"$4,205"
+  },
+  {
+      "item":"Items",
+      "orderBy":"Ava Alexander",
+      "from":"Flipkart India",
+      "date":"07,Mar,2021",
+      "paidBy":"/images/Frame_Visa.png",
+      "status":"Pending",
+      "amount":"$800"
+  },
+  {
+      "item":"Items",
+      "orderBy":"Ava Alexander",
+      "from":"Flipkart India",
+      "date":"07,Mar,2021",
+      "paidBy":"/images/Frame_Paypal.png",
+      "status":"Approved",
+      "amount":"$355"
+  }
+  
+]
 const AccountExpenses = () => {
-  const [data, setData] = useState([]);
-
+  const [ExpensesData, setExpenseData] = useState([]);
   useEffect(() => {
-    const getData = async () => {
-      const list = await axios.get("./expenses_mock_data.json");
-      setData(list.data);
-    };
-    getData();
-  },[]);
-
+    setExpenseData(ExpensesList);
+  }, []); 
   return (
-    <div className="bg-[#E6F5FE] h-screen p-20">
+    <div className=" pl-8 mt-24">
       <h1 className="text-[#E65F2B] text-[20px]">
         <span>Accounts</span> / <span>Expenses</span>
       </h1>
@@ -21,26 +62,26 @@ const AccountExpenses = () => {
         <table className="w-full">
           <thead>
             <tr className="bg-[#8fcff5] text-left ">
-              <th className="py-2 pl-5 ">Items</th>
-              <th>Order By</th>
-              <th>From</th>
-              <th>Date</th>
-              <th>Paid By</th>
-              <th>Status</th>
-              <th>Amount</th>
+              <th className="py-4 px-16 border-b bg-[#0098f1] bg-opacity-30 text-center">Items</th>
+              <th className="py-4 px-16 border-b bg-[#0098f1] bg-opacity-30 text-center">Order By</th>
+              <th className="py-4 px-16 border-b bg-[#0098f1] bg-opacity-30 text-center">From</th>
+              <th className="py-4 px-16 border-b bg-[#0098f1] bg-opacity-30 text-center">Date</th>
+              <th className="py-4 px-16 border-b bg-[#0098f1] bg-opacity-30 text-center">Paid By</th>
+              <th className="py-4 px-16 border-b bg-[#0098f1] bg-opacity-30 text-center">Status</th>
+              <th className="py-4 px-16 border-b bg-[#0098f1] bg-opacity-30 text-center">Amount</th>
             </tr>
           </thead>
           <tbody>
-            {data.map((data) => (
+            {ExpensesData.map((data) => (
               <tr key={data.id} className="font-semibold">
-                <td className="py-2 pl-5">{data.item}</td>
-                <td>{data.orderBy}</td>
-                <td>{data.from}</td>
-                <td>{data.date}</td>
-                <td>
+                <td className="py-2 px-4 border-b bg-transparent text-center">{data.item}</td>
+                <td className="py-2 px-4 border-b bg-transparent text-center">{data.orderBy}</td>
+                <td className="py-2 px-4 border-b bg-transparent text-center">{data.from}</td>
+                <td className="py-2 px-4 border-b bg-transparent text-center">{data.date}</td>
+                <td className="py-2 px-4 border-b bg-transparent text-center">
                   <img src={data.paidBy} alt="image" />
                 </td>
-                <td>
+                <td className="py-2 px-4 border-b bg-transparent text-center">
                   <p
                     type="button"
                     className={`${
@@ -52,7 +93,7 @@ const AccountExpenses = () => {
                     {data.status}
                   </p>
                 </td>
-                <td>{data.amount}</td>
+                <td className="py-2 px-4 border-b bg-transparent text-center">{data.amount}</td>
               </tr>
             ))}
           </tbody>

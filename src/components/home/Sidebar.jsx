@@ -210,12 +210,16 @@ import {
 import { MdOutlineSocialDistance } from "react-icons/md";
 import profile from "../../assets/employee/profile/profile.jpg";
 // import EmployeeTab from "./Employeetab/EmployeeTab";
+import HolidayList from "../holiday/HolidayList"
 import AllEmployees from "./employeetab/AllEmployees";
 import LeaveRequestsTab from "./employeetab/LeaveRequest";
 import AttendanceTab from "./employeetab/Attendance";
 import DepartmentTab from "./employeetab/DepartmentList";
-import AccountPayments from "../account/AccountPayments"
+import AccountPayments from "../account/AccountPayments";
 import NavBar from "./employeetab/EmployeeNavBar";
+import  AccountExpenses  from "../account/AccountExpenses";
+import AccountInvoice from "../account/AccountInvoice";
+// import AccountInvoice from "../account/AccountInvoice";
 
 function SideBar() {
   const [activeTab, setActiveTab] = useState("");
@@ -229,7 +233,7 @@ function SideBar() {
       component: "",
       icon: <FaTachometerAlt />,
     },
-    { title: "Holidays", component: "", icon: <FaCalendarAlt /> },
+    { title: "Holidays", component: "HolidayTab", icon: <FaCalendarAlt /> },
     { title: "Events", component: "", icon: <FaCalendarCheck /> },
     { title: "Activities", component: "", icon: <FaTasks /> },
     { title: "HR Social", component: "", icon: <MdOutlineSocialDistance /> },
@@ -257,18 +261,15 @@ function SideBar() {
   ];
 
   const accountOptions = [
-    { title: "All Accounts", component: "AllEmployees", icon: <FaUsers /> },
+  
+    
     {
-      title: "Account Requests",
-      component: "LeaveRequestsTab",
-      icon: <FaClipboardList />,
-    },
-    {
-      title: "Account Payment",
+      title: "Payment",
       component: "PaymentsTab",
       icon: <FaCalendarCheck />,
     },
-    { title: "Account Department", component: "DepartmentTab", icon: <FaBuilding /> },
+    { title: "Expenses", component: "ExpensesTab", icon: <FaBuilding /> },
+    { title: "Invoice", component: "InvoiceTab", icon: <FaBuilding /> },
   ];
 
   const handleOptionClick = (option) => {
@@ -399,9 +400,11 @@ function SideBar() {
         {activeTab === "LeaveRequestsTab" && <LeaveRequestsTab />}
         {activeTab === "AttendanceTab" && <AttendanceTab />}
         {activeTab === "DepartmentTab" && <DepartmentTab />}
+        {activeTab === "HolidayTab" && <HolidayList />}
         {/* {activeTab === "DepartmentTab" && <DepartmentTab />} */}
             {activeTab === "PaymentsTab" && < AccountPayments />}
             {activeTab === "ExpensesTab" && <AccountExpenses />}
+            {activeTab === "InvoiceTab" && <AccountInvoice />}
       </div>
     </div>
     </div>
