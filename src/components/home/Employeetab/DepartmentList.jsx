@@ -39,7 +39,7 @@ const sampleData = [
   },
 ];
 
-function LeaveRequest() {
+function DepartmentList() {
   return (
     <>
       <div id="main" className="h-screen w-auto bg-transparentp-4 mt-24 ml-8">
@@ -123,4 +123,4 @@ function LeaveRequest() {
   );
 }
 
-export default LeaveRequest;
+export default DepartmentList;

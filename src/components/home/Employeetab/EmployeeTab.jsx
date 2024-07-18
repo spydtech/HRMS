@@ -3,7 +3,7 @@ import { MdNotificationAdd } from "react-icons/md";
 // import IMG from "../assets/studentcourseicons/hacker.png";
 import { FaEdit } from "react-icons/fa";
 
-function RecruitmentTab() {
+function EmployeeTab() {
   return (
     <>
       <div id="main" className=" bg-black h-[240vh] w-auto gap-y-3 ">
@@ -74,4 +74,4 @@ function RecruitmentTab() {
   );
 }
 
-export default RecruitmentTab;
+export default EmployeeTab;
