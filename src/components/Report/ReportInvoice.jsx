@@ -64,24 +64,24 @@ const ReportInvoiceList = [
 const ReportInvoice = () => {
     const [ReportInvoiceData, setReportInvoiceData] = useState([]);
     useEffect(() => {
-        setReportInvoiceData(ReportInvoiceList);
+        setReportInvoiceData(ReportInvoiceData);
     }, []); 
   return (
     <div className='w-full  mt-24 pl-8'>
-        <h2 className='text-[#E65F2B] text-[20px] pt-4'>Accounts/Invoice</h2>
-            <table className='min-w-full md:table border-collapse'>
+        <h2 className="text-xl text-orange-500 font-medium font-roboto mb-2">Accounts/Invoice</h2>
+            <table className='min-w-full md:table border-collapse mt-5'>
                 <thead style={{backgroundColor:'rgba(0, 152, 241, 0.3)'}}>
                     <tr className="text-left">
-                        <th className="py-4 px-16 border-b bg-[#0098f1] bg-opacity-30 text-center">Invoice Number</th>
-                        <th className="py-4 px-16 border-b bg-[#0098f1] bg-opacity-30 text-center">Client</th>
-                        <th className="py-4 px-16 border-b bg-[#0098f1] bg-opacity-30 text-center">Date</th>
-                        <th className="py-4 px-16 border-b bg-[#0098f1] bg-opacity-30 text-center">Type</th>
-                        <th className="py-4 px-16 border-b bg-[#0098f1] bg-opacity-30 text-center">Status</th>
-                        <th className="py-4 px-16 border-b bg-[#0098f1] bg-opacity-30 text-center">Amount</th>
+                        <th className="py-4 px-14 border-b bg-[#0098f1] bg-opacity-30 text-center">Invoice Number</th>
+                        <th className="py-4 px-14 border-b bg-[#0098f1] bg-opacity-30 text-center">Client</th>
+                        <th className="py-4 px-14 border-b bg-[#0098f1] bg-opacity-30 text-center">Date</th>
+                        <th className="py-4 px-14 border-b bg-[#0098f1] bg-opacity-30 text-center">Type</th>
+                        <th className="py-4 px-14 border-b bg-[#0098f1] bg-opacity-30 text-center">Status</th>
+                        <th className="py-4 px-14 border-b bg-[#0098f1] bg-opacity-30 text-center">Amount</th>
                     </tr>
                 </thead>
                 <tbody>
-                {InvoiceData.map((item, index) => (
+                {ReportInvoiceList.map((item, index) => (
                     <tr key={index} className="text-left font-medium text-[15px]">
                         <td className="py-2 px-4 border-b bg-transparent text-center">{item.Invoice_Number}</td>
                         <td className="py-2 px-4 border-b bg-transparent text-center">{item.Client}</td>
