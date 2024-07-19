@@ -28,6 +28,8 @@ function Login() {
             "linear-gradient(to bottom, rgba(0, 88, 139, 0.2) 19.36%, rgba(0, 88, 139, 0.2) 19.36%)",
         }}
       >
+          <h2 className="text-lg font-medium  text-white text-start "
+        >Login an account</h2>
         <form
           onSubmit={handleSubmit}
           className="flex flex-col w-full space-y-4"
@@ -78,6 +80,12 @@ function Login() {
             Log In
           </button>
         </form>
+        <p className=" text-center text-white pb-8">
+          Don't have an account? {" "}
+          <Link to="/register" className="">
+           {" "} Register
+          </Link>
+        </p>
       </div>
     </div>
   );
