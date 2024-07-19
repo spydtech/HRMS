@@ -2,12 +2,12 @@ import React from 'react';
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 
 import Sidebar from "./components/home/Sidebar";
-import Register from './components/Authentication/register/Register';
 // import EmployeeNavBar from "./components/home/employeetab/EmployeeNavBar";
 // import AllEmployees from "./components/home/employeetab/AllEmployees";
 // import LeaveRequest from "./components/home/employeetab/LeaveRequest";
 // import DepartmentList from "./components/home/employeetab/DepartmentList";
 import Login from "./components/Authentication/login/Login";
+import Register from './components/Authentication/register/Register';
 // import NewEmployee from "./components/home/employeeForm/NewEmployee";
 // import AddDepartment from "./components/home/employeeForm/AddDepartment";
 // import AddLeavePage from "./components/home/employeeForm/AddLeavePage";
