@@ -3,7 +3,6 @@ import React from 'react';
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 
 import Sidebar from "./components/home/Sidebar";
-import EmployeeTab from "./components/home/employeetab/EmployeeTab"
 import LeaveRequest from './components/home/employeetab/LeaveRequest';
 import DepartmentList from "./components/home/employeetab/DepartmentList";
 import AllEmployees from './components/home/employeetab/AllEmployees';
@@ -35,7 +34,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           {/* <Route path="/navbar" element={<EmployeeNavBar />} /> */}
-          {/* <Route path="/allemployees" element={<AllEmployees />} />
+          <Route path="/allemployees" element={<AllEmployees />} />
           <Route path="/leaverequest" element={<LeaveRequest />} />
           <Route path="/departmentlist" element={<DepartmentList />} />
           <Route path="/new-employee" element={<NewEmployee />} />
@@ -43,7 +42,7 @@ function App() {
           <Route path="/add-leavePage" element={<AddLeavePage />} />
           <Route path="/edit-departmentList" element={<EditDepartmentList />} />
           <Route path="/edit-employee" element={<EditEmployee />} />
-          <Route path="/edit-department" element={<EditDepartment />} /> */}
+          <Route path="/edit-department" element={<EditDepartment />} />
         </Routes>
       </BrowserRouter>
     </div>
