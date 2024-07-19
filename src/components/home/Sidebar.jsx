@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 // // import React, { useState } from "react";
 // // import {
 // //   FaTachometerAlt,
@@ -505,7 +506,7 @@
 //   );
 // }
 
-// export default SideBar;
+// export defaultSideBar;
 
 
 
@@ -615,10 +616,7 @@ function SideBar() {
       setShowEmployeeOptions(!showEmployeeOptions);
     }
     else if (option.title === "Account") {
-    } else if (option.title === "Account") {
       setShowAccountOptions(!showAccountOptions);
-    }
-    else {
     } else if (option.title === "Report") {
       setShowReportOptions(!showReportOptions);
     } else if (option.title === "Authentication") {
@@ -665,8 +663,8 @@ function SideBar() {
             <div className="text-xl text-white flex justify-around pr-10 pb-5 items-center">
               <span
                 className={`cursor-pointer  ${selectedHeader === "Hr"
-                    ? "underline decoration-2 underline-offset-8 "
-                    : ""
+                  ? "underline decoration-2 underline-offset-8 "
+                  : ""
                   }`}
                 onClick={() => handleHeaderClick("Hr")}
               >
@@ -674,8 +672,8 @@ function SideBar() {
               </span>
               <span
                 className={`cursor-pointer  ${selectedHeader === "Projects"
-                    ? "underline decoration-2 underline-offset-8 "
-                    : ""
+                  ? "underline decoration-2 underline-offset-8 "
+                  : ""
                   }`}
                 onClick={() => handleHeaderClick("Projects")}
               >
@@ -864,12 +862,9 @@ function SideBar() {
       </div>
       {activeTab === "ReportInvoice" && <ReportInvoice />}
       {activeTab === "ReportExpenses" && <ReportExpenses />}
-    </div >
-        </div >
-      </div >
     </>
   );
 }
 
 export default SideBar;
-export default SideBar;
+

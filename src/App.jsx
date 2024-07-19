@@ -7,7 +7,7 @@ import EmployeeTab from "./components/home/employeetab/EmployeeTab"
 import LeaveRequest from './components/home/employeetab/LeaveRequest';
 import DepartmentList from "./components/home/employeetab/DepartmentList";
 import AllEmployees from './components/home/employeetab/AllEmployees';
-import Login from "./components/login/Login";
+// import Login from "./components/login/Login";
 import NewEmployee from "./components/home/employeeForm/NewEmployee";
 import AddDepartment from "./components/home/employeeForm/AddDepartment";
 import AddLeavePage from "./components/home/employeeForm/AddLeavePage";
