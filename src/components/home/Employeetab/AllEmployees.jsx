@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { FiPlusCircle, FiEdit, FiTrash2 } from "react-icons/fi";
+import { BsCheck2Circle } from "react-icons/bs";
 import uncheckbox from "../../../assets/employee/checkbox/uncheck.png";
 import checkbox from "../../../assets/employee/checkbox/checkbox.png";
 import { useNavigate } from "react-router-dom";
 import SideBar from "../Sidebar";
+
 const EMPLOYEE_KEY = "employee_data";
 
 function AllEmployees() {
   const [employees, setEmployees] = useState([]);
   const [isChecked, setIsChecked] = useState({});
   const [headerChecked, setHeaderChecked] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -40,6 +43,10 @@ function AllEmployees() {
     const updatedEmployees = employees.filter((employee) => employee.id !== id);
     setEmployees(updatedEmployees);
     localStorage.setItem(EMPLOYEE_KEY, JSON.stringify(updatedEmployees));
+    setShowSuccess(true);
+    setTimeout(() => {
+      setShowSuccess(false);
+    }, 1000);
   };
 
   return (
@@ -68,10 +75,10 @@ function AllEmployees() {
           </div>
         </div>
         <div id="table" className="w-full">
-          <table className="min-w-full overflow-x-auto">
+          <table className="min-w-full overflow-x-auto text-nowrap">
             <thead>
               <tr>
-                <th className="py-2 px-4 te border-b bg-transparent text-center">
+                <th className="py-2 px-4 border-b bg-transparent text-center">
                   <img
                     src={headerChecked ? checkbox : uncheckbox}
                     alt="Header Checkbox"
@@ -160,6 +167,16 @@ function AllEmployees() {
             </tbody>
           </table>
         </div>
+        {showSuccess && (
+          <div className="fixed inset-0 bg-blue-100 bg-opacity-50 flex justify-center items-center">
+            <div className="bg-red-500 py-8 px-4 md:py-10 md:px-16 rounded-lg text-white">
+              <BsCheck2Circle className="text-4xl md:text-6xl mb-4 mx-auto" />
+              <p className="text-center text-lg md:text-2xl">
+                Successfully Deleted Employee
+              </p>
+            </div>
+          </div>
+        )}
       </div>
     </>
   );

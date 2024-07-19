@@ -8,7 +8,7 @@ const EditDepartment = () => {
   const [name, setName] = useState("");
   const [head, setHead] = useState("");
   const [employees, setEmployees] = useState("");
-  const [showModal, setShowModal] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -34,15 +34,15 @@ const EditDepartment = () => {
       dept.id === Number(id) ? updatedDepartment : dept
     );
     localStorage.setItem("departments", JSON.stringify(updatedDepartments));
-    setShowModal(true);
+    setShowSuccess(true);
     setTimeout(() => {
-      setShowModal(false);
-      navigate("/");
+      setShowSuccess(false);
+      navigate("/departmentlist");
     }, 1500);
   };
 
-  const handleCloseModal = () => {
-    setShowModal(false);
+  const handleCloseSuccess = () => {
+    setShowSuccess(false);
   };
 
   return (
@@ -105,22 +105,13 @@ const EditDepartment = () => {
             </button>
           </div>
         </form>
-        {showModal && (
-          <div
-            className="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center z-50"
-            onClick={handleCloseModal}
-          >
-            <div
-              className="bg-[#2a97db] z-50 p-8 rounded-lg shadow-lg"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div className="text-center mt-4 flex flex-col justify-center items-center gap-3">
-                <BsCheck2Circle className="text-white text-[40px]" />
-                <span className="text-white">
-                  Department Updated <br />
-                  Successfully
-                </span>
-              </div>
+        {showSuccess && (
+          <div className="fixed inset-0 bg-blue-100 bg-opacity-50 flex justify-center items-center">
+            <div className="bg-blue-500 py-8 px-4 md:py-10 md:px-16 rounded-lg text-white">
+              <BsCheck2Circle className="text-4xl md:text-6xl mb-4 mx-auto" />
+              <p className="text-center text-lg md:text-2xl">
+                Department Updated Successfully!
+              </p>
             </div>
           </div>
         )}

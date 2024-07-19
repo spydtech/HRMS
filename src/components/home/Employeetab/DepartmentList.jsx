@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { MdDelete, MdEdit } from "react-icons/md";
-import { FiPlusCircle, FiEdit, FiTrash2 } from "react-icons/fi";
+import { FiPlusCircle } from "react-icons/fi";
+import { BsCheck2Circle } from "react-icons/bs"; // Import success icon
 import SideBar from "../Sidebar";
+
 function DepartmentList() {
   const [departments, setDepartments] = useState([]);
+  const [showSuccess, setShowSuccess] = useState(false); // State for showing success message
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -19,6 +22,10 @@ function DepartmentList() {
     );
     setDepartments(updatedDepartments);
     localStorage.setItem("departments", JSON.stringify(updatedDepartments));
+    setShowSuccess(true);
+    setTimeout(() => {
+      setShowSuccess(false);
+    }, 1000);
   };
 
   return (
@@ -99,6 +106,16 @@ function DepartmentList() {
             </tbody>
           </table>
         </div>
+        {showSuccess && (
+          <div className="fixed inset-0 bg-blue-100 bg-opacity-50 flex justify-center items-center">
+            <div className="bg-red-500   py-8 px-4 md:py-10 md:px-16 rounded-lg text-white">
+              <BsCheck2Circle className="text-4xl md:text-6xl mb-4 mx-auto" />
+              <p className="text-center text-lg md:text-2xl">
+                Deleted successfully!
+              </p>
+            </div>
+          </div>
+        )}
       </div>
     </>
   );

@@ -7,7 +7,7 @@ const AddDepartment = () => {
   const [name, setName] = useState("");
   const [head, setHead] = useState("");
   const [employees, setEmployees] = useState("");
-  const [showModal, setShowModal] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false); // State for showing success message
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -23,18 +23,14 @@ const AddDepartment = () => {
       "departments",
       JSON.stringify([...departments, department])
     );
-    setShowModal(true);
+    setShowSuccess(true);
     setName("");
     setHead("");
     setEmployees("");
     setTimeout(() => {
-      setShowModal(false);
+      setShowSuccess(false);
       navigate("/departmentlist");
     }, 1500);
-  };
-
-  const handleCloseModal = () => {
-    setShowModal(false);
   };
 
   return (
@@ -91,28 +87,19 @@ const AddDepartment = () => {
             <button
               type="button"
               className="bg-white text-blue-500 border border-blue-400 px-7 text-sm font-medium rounded-md focus:outline-none"
-              onClick={() => navigate("/")}
+              onClick={() => navigate("/departmentlist")}
             >
               Cancel
             </button>
           </div>
         </form>
-        {showModal && (
-          <div
-            className="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center z-50"
-            onClick={handleCloseModal}
-          >
-            <div
-              className="bg-[#2a97db] z-50 p-8 rounded-lg shadow-lg"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div className="text-center mt-4 flex flex-col justify-center items-center gap-3">
-                <BsCheck2Circle className="text-white text-[40px]" />
-                <span className="text-white">
-                  New Department Added <br />
-                  Successfully
-                </span>
-              </div>
+        {showSuccess && (
+          <div className="fixed inset-0 bg-blue-100 bg-opacity-50 flex justify-center items-center">
+            <div className="bg-blue-500 py-8 px-4 md:py-10 md:px-16 rounded-lg text-white">
+              <BsCheck2Circle className="text-4xl md:text-6xl mb-4 mx-auto" />
+              <p className="text-center text-2xl ">
+                New Department Added Successfully!
+              </p>
             </div>
           </div>
         )}
