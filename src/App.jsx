@@ -1,12 +1,12 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 
 import Sidebar from "./components/home/Sidebar";
-import EmployeeTab from "./components/home/employeetab/EmployeeTab";
-import EmployeeNavBar from "./components/home/employeetab/EmployeeNavBar";
-import AllEmployees from "./components/home/employeetab/AllEmployees";
-import LeaveRequest from "./components/home/employeetab/LeaveRequest";
+import EmployeeTab from "./components/home/employeetab/EmployeeTab"
+import LeaveRequest from './components/home/employeetab/LeaveRequest';
 import DepartmentList from "./components/home/employeetab/DepartmentList";
+import AllEmployees from './components/home/employeetab/AllEmployees';
 import Login from "./components/login/Login";
 import NewEmployee from "./components/home/employeeForm/NewEmployee";
 import AddDepartment from "./components/home/employeeForm/AddDepartment";

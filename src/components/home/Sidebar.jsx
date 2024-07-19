@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 // import React, { useState } from "react";
 // import {
 //   FaTachometerAlt,
@@ -177,9 +178,9 @@
 //             {activeTab === "LeaveRequestsTab" && <LeaveRequestsTab />}
 //             {activeTab === "AttendanceTab" && <AttendanceTab />}
 //             {activeTab === "HolidayList" && <HolidayList />}
-            // {activeTab === "DepartmentTab" && <DepartmentTab />}
-            // {activeTab === "PaymentsTab" && <AccountExpenses />}
-            // {activeTab === "ExpensesTab" && <AccountPayments />}
+// {activeTab === "DepartmentTab" && <DepartmentTab />}
+// {activeTab === "PaymentsTab" && <AccountExpenses />}
+// {activeTab === "ExpensesTab" && <AccountPayments />}
 //             {/* {activeTab === "InvoiceTab" && <AccountInvoice />} */}
 //           </div>
 //         </div>
@@ -217,7 +218,7 @@ import AttendanceTab from "./employeetab/Attendance";
 import DepartmentTab from "./employeetab/DepartmentList";
 import AccountPayments from "../account/AccountPayments";
 import NavBar from "./employeetab/EmployeeNavBar";
-import  AccountExpenses  from "../account/AccountExpenses";
+import AccountExpenses from "../account/AccountExpenses";
 import AccountInvoice from "../account/AccountInvoice";
 // import AccountInvoice from "../account/AccountInvoice";
 
@@ -261,8 +262,8 @@ function SideBar() {
   ];
 
   const accountOptions = [
-  
-    
+
+
     {
       title: "Payment",
       component: "PaymentsTab",
@@ -276,10 +277,10 @@ function SideBar() {
     if (option.title === "Employee") {
       setShowEmployeeOptions(!showEmployeeOptions);
     }
-    else if(option.title === "Account"){
+    else if (option.title === "Account") {
       setShowAccountOptions(!showAccountOptions);
     }
-     else {
+    else {
       setActiveTab(option.component);
       setShowEmployeeOptions(false);
       setShowAccountOptions(false);
@@ -300,116 +301,114 @@ function SideBar() {
 
   return (
     <>
-    
-    
-    <div className="relative">
-      <NavBar />
-    </div>
-    <div className="absolute top-0">
 
-    <div className="flex h-auto pb-10 ">
-      <div className="bg-[#0098f1] w-[240px] pt-10 pb-10 h-auto rounded-br-[48px]">
-        <div className="px-2 flex pb-5">
-          <img src={profile} className="rounded-full w-[70px] h-[70px]" />
-          <p className="text-[16px] pt-5 text-white pl-2">Welcome User</p>
-        </div>
-        <div className="text-xl text-white flex justify-around pr-10 pb-5 items-center">
-          <span
-            className={`cursor-pointer  ${
-              selectedHeader === "Hr"
-                ? "underline decoration-2 underline-offset-8 "
-                : ""
-            }`}
-            onClick={() => handleHeaderClick("Hr")}
-          >
-            Hr
-          </span>
-          <span
-            className={`cursor-pointer  ${
-              selectedHeader === "Projects"
-                ? "underline decoration-2 underline-offset-8 "
-                : ""
-            }`}
-            onClick={() => handleHeaderClick("Projects")}
-          >
-            Projects
-          </span>
-        </div>
 
-        <div className="flex flex-col pr-3 text-white">
-          {options.map((option, index) => (
-            <div key={index}>
-              <div
-                className="flex items-center transition-all duration-500 hover:bg-white text-white hover:text-[#e65f2b] w-[200px] mx-0 rounded-tr-3xl rounded-br-3xl cursor-pointer"
-                onClick={() => handleOptionClick(option)}
-              >
-                <div className="p-3 pl-4 text-xl flex items-center">
-                  {option.icon}
-                  <span className="ml-3">{option.title}</span>
-                </div>
-                {option.title === "Employee" && (
-                  <div className="ml-auto pr-4">
-                    {showEmployeeOptions ? <FaChevronUp /> : <FaChevronDown />}
-                  </div>
-                )}
-                {option.title === "Account" && (
-                  <div className="ml-auto pr-4">
-                    {showAccountOptions ? <FaChevronUp /> : <FaChevronDown />}
-                  </div>
-                )}
-              </div>
-              {option.title === "Employee" && showEmployeeOptions && (
-                <div className="transition-all duration-500 ml-8 ">
-                  {employeeOptions.map((item, idx) => (
-                    <div
-                      key={idx}
-                      className="flex items-center transition-all duration-500 hover:bg-white text-white hover:text-[#e65f2b] w-[200px] mx-0 rounded-tr-3xl rounded-br-3xl cursor-pointer"
-                      onClick={() => handleEmployeeOptionClick(item)}
-                    >
-                      <div className="p-3 pl-4 text-xl flex items-center">
-                        {item.icon}
-                        <span className="ml-3">{item.title}</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              )}
-              {option.title === "Account" && showAccountOptions && (
-                <div className="transition-all duration-500 ml-8 ">
-                  {accountOptions.map((item, idx) => (
-                    <div
-                      key={idx}
-                      className="flex items-center transition-all duration-500 hover:bg-white text-white hover:text-[#e65f2b] w-[200px] mx-0 rounded-tr-3xl rounded-br-3xl cursor-pointer"
-                      onClick={() => handleAccountOptionClick(item)}
-                    >
-                      <div className="p-3 pl-4 text-xl flex items-center">
-                        {item.icon}
-                        <span className="ml-3">{item.title}</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
+      <div className="relative">
+        <NavBar />
       </div>
-      <div className="flex-1">
-        {/* {activeTab === "EmployeeTab" && <EmployeeTab />} */}
-        {activeTab === "AllEmployees" && <AllEmployees />}
-        {activeTab === "LeaveRequestsTab" && <LeaveRequestsTab />}
-        {activeTab === "AttendanceTab" && <AttendanceTab />}
-        {activeTab === "DepartmentTab" && <DepartmentTab />}
-        {activeTab === "HolidayTab" && <HolidayList />}
-        {/* {activeTab === "DepartmentTab" && <DepartmentTab />} */}
+      <div className="absolute top-0">
+
+        <div className="flex h-auto pb-10 ">
+          <div className="bg-[#0098f1] w-[240px] pt-10 pb-10 h-auto rounded-br-[48px]">
+            <div className="px-2 flex pb-5">
+              <img src={profile} className="rounded-full w-[70px] h-[70px]" />
+              <p className="text-[16px] pt-5 text-white pl-2">Welcome User</p>
+            </div>
+            <div className="text-xl text-white flex justify-around pr-10 pb-5 items-center">
+              <span
+                className={`cursor-pointer  ${selectedHeader === "Hr"
+                  ? "underline decoration-2 underline-offset-8 "
+                  : ""
+                  }`}
+                onClick={() => handleHeaderClick("Hr")}
+              >
+                Hr
+              </span>
+              <span
+                className={`cursor-pointer  ${selectedHeader === "Projects"
+                  ? "underline decoration-2 underline-offset-8 "
+                  : ""
+                  }`}
+                onClick={() => handleHeaderClick("Projects")}
+              >
+                Projects
+              </span>
+            </div>
+
+            <div className="flex flex-col pr-3 text-white">
+              {options.map((option, index) => (
+                <div key={index}>
+                  <div
+                    className="flex items-center transition-all duration-500 hover:bg-white text-white hover:text-[#e65f2b] w-[200px] mx-0 rounded-tr-3xl rounded-br-3xl cursor-pointer"
+                    onClick={() => handleOptionClick(option)}
+                  >
+                    <div className="p-3 pl-4 text-xl flex items-center">
+                      {option.icon}
+                      <span className="ml-3">{option.title}</span>
+                    </div>
+                    {option.title === "Employee" && (
+                      <div className="ml-auto pr-4">
+                        {showEmployeeOptions ? <FaChevronUp /> : <FaChevronDown />}
+                      </div>
+                    )}
+                    {option.title === "Account" && (
+                      <div className="ml-auto pr-4">
+                        {showAccountOptions ? <FaChevronUp /> : <FaChevronDown />}
+                      </div>
+                    )}
+                  </div>
+                  {option.title === "Employee" && showEmployeeOptions && (
+                    <div className="transition-all duration-500 ml-8 ">
+                      {employeeOptions.map((item, idx) => (
+                        <div
+                          key={idx}
+                          className="flex items-center transition-all duration-500 hover:bg-white text-white hover:text-[#e65f2b] w-[200px] mx-0 rounded-tr-3xl rounded-br-3xl cursor-pointer"
+                          onClick={() => handleEmployeeOptionClick(item)}
+                        >
+                          <div className="p-3 pl-4 text-xl flex items-center">
+                            {item.icon}
+                            <span className="ml-3">{item.title}</span>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                  {option.title === "Account" && showAccountOptions && (
+                    <div className="transition-all duration-500 ml-8 ">
+                      {accountOptions.map((item, idx) => (
+                        <div
+                          key={idx}
+                          className="flex items-center transition-all duration-500 hover:bg-white text-white hover:text-[#e65f2b] w-[200px] mx-0 rounded-tr-3xl rounded-br-3xl cursor-pointer"
+                          onClick={() => handleAccountOptionClick(item)}
+                        >
+                          <div className="p-3 pl-4 text-xl flex items-center">
+                            {item.icon}
+                            <span className="ml-3">{item.title}</span>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="flex-1">
+            {/* {activeTab === "EmployeeTab" && <EmployeeTab />} */}
+            {activeTab === "AllEmployees" && <AllEmployees />}
+            {activeTab === "LeaveRequestsTab" && <LeaveRequestsTab />}
+            {activeTab === "AttendanceTab" && <AttendanceTab />}
+            {activeTab === "DepartmentTab" && <DepartmentTab />}
+            {activeTab === "HolidayTab" && <HolidayList />}
+            {/* {activeTab === "DepartmentTab" && <DepartmentTab />} */}
             {activeTab === "PaymentsTab" && < AccountPayments />}
             {activeTab === "ExpensesTab" && <AccountExpenses />}
             {activeTab === "InvoiceTab" && <AccountInvoice />}
+          </div>
+        </div>
       </div>
-    </div>
-    </div>
     </>
   );
 }
 
-export default SideBar;
+export default SideBar;
