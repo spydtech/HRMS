@@ -219,12 +219,14 @@ import AccountPayments from "../account/AccountPayments";
 import NavBar from "./employeetab/EmployeeNavBar";
 import  AccountExpenses  from "../account/AccountExpenses";
 import AccountInvoice from "../account/AccountInvoice";
+import ReportInvoice from "../Report/ReportInvoice";
 // import AccountInvoice from "../account/AccountInvoice";
 
 function SideBar() {
   const [activeTab, setActiveTab] = useState("");
   const [showEmployeeOptions, setShowEmployeeOptions] = useState(false);
   const [showAccountOptions, setShowAccountOptions] = useState(false);
+  const [showReportOptions, setShowReportOptions] = useState(false);
   const [selectedHeader, setSelectedHeader] = useState("");
 
   const options = [
@@ -261,8 +263,6 @@ function SideBar() {
   ];
 
   const accountOptions = [
-  
-    
     {
       title: "Payment",
       component: "PaymentsTab",
@@ -270,6 +270,10 @@ function SideBar() {
     },
     { title: "Expenses", component: "ExpensesTab", icon: <FaBuilding /> },
     { title: "Invoice", component: "InvoiceTab", icon: <FaBuilding /> },
+  ];
+  const reportOptions = [
+    { title: "Expenses Report", component: "ExpensesTab", icon: <FaBuilding /> },
+    { title: "Invoice Report", component: "InvoiceTab", icon: <FaBuilding /> },
   ];
 
   const handleOptionClick = (option) => {
@@ -279,14 +283,21 @@ function SideBar() {
     else if(option.title === "Account"){
       setShowAccountOptions(!showAccountOptions);
     }
+    else if(option.title === "Report"){
+      setShowReportOptions(!showReportOptions);
+    }
      else {
       setActiveTab(option.component);
       setShowEmployeeOptions(false);
       setShowAccountOptions(false);
+      setShowReportOptions(false);
     }
   };
 
   const handleEmployeeOptionClick = (option) => {
+    setActiveTab(option.component);
+  };
+  const handleReportOptionClick = (option) => {
     setActiveTab(option.component);
   };
 
@@ -308,7 +319,7 @@ function SideBar() {
     <div className="absolute top-0">
 
     <div className="flex h-auto pb-10 ">
-      <div className="bg-[#0098f1] w-[240px] pt-10 pb-10 h-auto rounded-br-[48px]">
+      <div className="bg-[#0098f1] w-[280px] pt-10 pb-10 h-auto rounded-br-[48px]">
         <div className="px-2 flex pb-5">
           <img src={profile} className="rounded-full w-[70px] h-[70px]" />
           <p className="text-[16px] pt-5 text-white pl-2">Welcome User</p>
@@ -357,6 +368,11 @@ function SideBar() {
                     {showAccountOptions ? <FaChevronUp /> : <FaChevronDown />}
                   </div>
                 )}
+                {option.title === "Report" && (
+                  <div className="ml-auto pr-4">
+                    {showReportOptions ? <FaChevronUp /> : <FaChevronDown />}
+                  </div>
+                )}
               </div>
               {option.title === "Employee" && showEmployeeOptions && (
                 <div className="transition-all duration-500 ml-8 ">
@@ -381,6 +397,22 @@ function SideBar() {
                       key={idx}
                       className="flex items-center transition-all duration-500 hover:bg-white text-white hover:text-[#e65f2b] w-[200px] mx-0 rounded-tr-3xl rounded-br-3xl cursor-pointer"
                       onClick={() => handleAccountOptionClick(item)}
+                    >
+                      <div className="p-3 pl-4 text-xl flex items-center">
+                        {item.icon}
+                        <span className="ml-3">{item.title}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+              {option.title === "Report" && showReportOptions && (
+                <div className="transition-all duration-500 ml-8 ">
+                  {reportOptions.map((item, idx) => (
+                    <div
+                      key={idx}
+                      className="flex items-center transition-all duration-500 hover:bg-white text-white hover:text-[#e65f2b] w-[260px] mx-0 rounded-tr-3xl rounded-br-3xl cursor-pointer"
+                      onClick={() => handleReportOptionClick(item)}
                     >
                       <div className="p-3 pl-4 text-xl flex items-center">
                         {item.icon}
