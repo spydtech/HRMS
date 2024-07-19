@@ -1,7 +1,7 @@
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 
 import Sidebar from "./components/home/Sidebar";
-import EmployeeTab from "./components/home/employeetab/EmployeeTab";
+// import EmployeeTab from "./components/home/employeetab/EmployeeTab";
 import EmployeeNavBar from "./components/home/employeetab/EmployeeNavBar";
 import AllEmployees from "./components/home/employeetab/AllEmployees";
 import LeaveRequest from "./components/home/employeetab/LeaveRequest";
@@ -20,7 +20,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Sidebar />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/employee" element={<EmployeeTab />} />
+          {/* <Route path="/employee" element={<EmployeeTab />} /> */}
         
           {/* <Route path="/navbar" element={<EmployeeNavBar />} /> */}
           <Route path="/allemployees" element={<AllEmployees />} />
