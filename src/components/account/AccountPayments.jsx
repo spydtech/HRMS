@@ -1,4 +1,4 @@
-import axios from "axios";
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 
 const initialData = [
@@ -48,9 +48,9 @@ const AccountPayments = () => {
   const [paymentData, setPaymentData] = useState([]);
 
   useEffect(() => {
-   
+
     setPaymentData(initialData);
-  }, []); 
+  }, []);
 
   return (
     <div className=" mt-24 pl-8">

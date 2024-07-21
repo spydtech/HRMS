@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 // // import React, { useState } from "react";
 // // import {
 // //   FaTachometerAlt,
@@ -337,8 +338,8 @@
 
 //   return (
 //     <>
-    
-    
+
+
 //     <div className="relative">
 //       <NavBar />
 //     </div>
@@ -470,6 +471,17 @@
 //                 </div>
 //               )}
 //             </div>
+//           </div>
+//           <div className="flex-1">
+//             {activeTab === "AllEmployeesTab" && <AllEmployeesTab />}
+//             {activeTab === "LeaveRequestsTab" && <LeaveRequestsTab />}
+//             {activeTab === "AttendanceTab" && <AttendanceTab />}
+//             {activeTab === "HolidayList" && <HolidayList />}
+// {activeTab === "DepartmentTab" && <DepartmentTab />}
+// {activeTab === "PaymentsTab" && <AccountExpenses />}
+// {activeTab === "ExpensesTab" && <AccountPayments />}
+//             {/* {activeTab === "InvoiceTab" && <AccountInvoice />} */}
+//           </div>
 //           ))}
 //         </div>
 //       </div>
@@ -486,7 +498,7 @@
 //             {activeTab === "InvoiceTab" && <AccountInvoice />}
 //             {activeTab === "ReportInvoice" && <ReportInvoice />}
 //             {activeTab === "ReportExpenses" && <ReportExpenses />}
-           
+
 //       </div>
 //     </div>
 //     </div>
@@ -494,7 +506,7 @@
 //   );
 // }
 
-// export default SideBar;
+// export defaultSideBar;
 
 
 
@@ -528,7 +540,6 @@ import AccountExpenses from "../account/AccountExpenses";
 import AccountInvoice from "../account/AccountInvoice";
 import ReportInvoice from "../Report/ReportInvoice";
 import ReportExpenses from "../Report/ReportExpenses";
-import UserList from "../user/UserList";
 
 function SideBar() {
   const [activeTab, setActiveTab] = useState("");
@@ -552,7 +563,7 @@ function SideBar() {
     { title: "Account", component: "", icon: <FaUserFriends /> },
     { title: "PayRoll", component: "", icon: <FaMoneyCheckAlt /> },
     { title: "Report", component: "", icon: <FaFileAlt /> },
-    { title: "User", component: "User", icon: <FaUser /> },
+    { title: "User", component: "", icon: <FaUser /> },
     { title: "Authentication", component: "", icon: <FaLock /> },
   ];
 
@@ -779,7 +790,6 @@ function SideBar() {
             {activeTab === "InvoiceTab" && <AccountInvoice />}
             {activeTab === "ReportInvoice" && <ReportInvoice />}
             {activeTab === "ReportExpenses" && <ReportExpenses />}
-            {activeTab === "User" && <UserList />}
           </div>
         </div>
       </div>
