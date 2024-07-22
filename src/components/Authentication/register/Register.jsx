@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 function Register() {
@@ -20,11 +21,11 @@ function Register() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#0098F1]">
-      <div className="bg-gradient-to-b w-full rounded-3xl max-w-md" style={{background: "linear-gradient(180deg, rgba(0, 88, 139, 0.1936) 0%, rgba(0, 88, 139, 0.1936) 100%)"}}
+      <div className="bg-gradient-to-b w-full rounded-3xl max-w-md" style={{ background: "linear-gradient(180deg, rgba(0, 88, 139, 0.1936) 0%, rgba(0, 88, 139, 0.1936) 100%)" }}
       >
         <h2 className="text-lg font-medium  text-white text-start pt-8 pl-7 "
         >Create an account</h2>
-        
+
         <form onSubmit={handleSubmit} className="space-y-4  p-4 justify-center">
           <div className=' pl-3  '>
             <input
@@ -60,22 +61,22 @@ function Register() {
             />
           </div>
           <div className=" pl-3 pt-2">
-          <button
-            type="submit"
-            className="w-[97%] pl-3 text-xl  font-semibold h-14 rounded-md text-[#0098f1] bg-white   "
-          >
-            Register
-          </button>
+            <button
+              type="submit"
+              className="w-[97%] pl-3 text-xl  font-semibold h-14 rounded-md text-[#0098f1] bg-white   "
+            >
+              Register
+            </button>
           </div>
         </form>
-        
+
         <p className=" text-center text-white pb-8">
           Already have an account? {" "}
           <Link to="/login" className="">
-           {" "} Login
+            {" "} Login
           </Link>
         </p>
-        
+
       </div>
     </div>
   );

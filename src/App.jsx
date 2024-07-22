@@ -13,18 +13,9 @@ import AddLeavePage from "./components/home/employeeForm/AddLeavePage";
 import EditDepartmentList from "./components/home/employeeForm/EditDepartmentList";
 import EditEmployee from "./components/home/employeeForm/EditEmployee";
 import EditDepartment from "./components/home/employeeForm/EditDepartment"
-// import EmployeeNavBar from "./components/home/employeetab/EmployeeNavBar";
-// import AllEmployees from "./components/home/employeetab/AllEmployees";
-// import LeaveRequest from "./components/home/employeetab/LeaveRequest";
-// import DepartmentList from "./components/home/employeetab/DepartmentList";
+// import EmployeeNavBar from "./components/home/employeetab/EmployeeNavBar"
 import Login from "./components/Authentication/login/Login";
 import Register from './components/Authentication/register/Register';
-// import NewEmployee from "./components/home/employeeForm/NewEmployee";
-// import AddDepartment from "./components/home/employeeForm/AddDepartment";
-// import AddLeavePage from "./components/home/employeeForm/AddLeavePage";
-// import EditDepartmentList from "./components/home/employeeForm/EditDepartmentList";
-// import EditEmployee from "./components/home/employeeForm/EditEmployee";
-// import EditDepartment from "./components/home/employeeForm/EditDepartment"
 function App() {
   return (
     <div>

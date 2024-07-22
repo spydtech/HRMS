@@ -540,6 +540,7 @@ import AccountExpenses from "../account/AccountExpenses";
 import AccountInvoice from "../account/AccountInvoice";
 import ReportInvoice from "../Report/ReportInvoice";
 import ReportExpenses from "../Report/ReportExpenses";
+import { useSelector } from "react-redux";
 
 
 function SideBar() {
@@ -549,6 +550,10 @@ function SideBar() {
   const [showReportOptions, setShowReportOptions] = useState(false);
   const [showAuthOptions, setShowAuthOptions] = useState(false);
   const [selectedHeader, setSelectedHeader] = useState("");
+  const jwt = localStorage.getItem("token1");
+  const auth = useSelector((state) => state.auth.user?.email);
+  const user = localStorage.setItem("user", auth)
+
 
   const options = [
     {
@@ -658,7 +663,7 @@ function SideBar() {
           <div className="bg-[#0098f1] w-[280px] pt-10 pb-10 h-auto rounded-br-[48px]">
             <div className="px-2 flex pb-5">
               <img src={profile} className="rounded-full w-[70px] h-[70px]" />
-              <p className="text-[16px] pt-5 text-white pl-2">Welcome User</p>
+              <p className="text-[16px] pt-5 text-white pl-2">Welcome {auth}</p>
             </div>
             <div className="text-xl text-white flex justify-around pr-10 pb-5 items-center">
               <span
