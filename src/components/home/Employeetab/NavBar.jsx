@@ -9,7 +9,7 @@ import {
 } from "react-icons/fa";
 import { TiMessages } from "react-icons/ti";
 
-function EmployeeNavBar() {
+function NavBar() {
   const [hoveredIcon, setHoveredIcon] = useState("");
 
   const handleMouseEnter = (iconName) => {
@@ -80,4 +80,4 @@ function EmployeeNavBar() {
   );
 }
 
-export default EmployeeNavBar;
+export default NavBar;

@@ -1,143 +1,123 @@
-import React, { useState } from "react";
-import { FiEdit3 } from "react-icons/fi";
+import React, { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { BsCheck2Circle } from "react-icons/bs";
+import SideBar from "../Sidebar";
 
-const DEPARTMENT_KEY = "department_data";
-
-const EditDepartmentList = () => {
-  const [depName, setDepName] = useState("");
-  const [depHead, setDepHead] = useState("");
-  const [totalEmp, setTotalEmp] = useState("");
+const EditDepartment = () => {
+  const { id } = useParams();
+  const [name, setName] = useState("");
+  const [head, setHead] = useState("");
+  const [employees, setEmployees] = useState("");
   const [showSuccess, setShowSuccess] = useState(false);
-  const [error, setError] = useState({});
+  const navigate = useNavigate();
 
-  const onEditClick = (id) => {
-    const element = document.querySelector("#" + id);
-    element.focus();
-  };
+  useEffect(() => {
+    const departments = JSON.parse(localStorage.getItem("departments")) || [];
+    const department = departments.find((dept) => dept.id === Number(id));
+    if (department) {
+      setName(department.department);
+      setHead(department.departmentHead);
+      setEmployees(department.totalEmployees);
+    }
+  }, [id]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const updatedDepartment = {
+      id: Number(id),
+      department: name,
+      departmentHead: head,
+      totalEmployees: employees,
+    };
+    const departments = JSON.parse(localStorage.getItem("departments")) || [];
+    const updatedDepartments = departments.map((dept) =>
+      dept.id === Number(id) ? updatedDepartment : dept
+    );
+    localStorage.setItem("departments", JSON.stringify(updatedDepartments));
+    setShowSuccess(true);
+    setTimeout(() => {
+      setShowSuccess(false);
+      navigate("/departmentlist");
+    }, 1500);
+  };
 
-    // Validations
-    const newErrors = {};
-    if (!depName.trim()) newErrors.depName = "Department Name is required";
-    if(!depHead.trim()) newErrors.depHead = "Department Head is required"
-    if(!totalEmp.trim()) newErrors.totalEmp = "Total Employees is required"
-
-    setError(newErrors);
-
-    if (Object.keys(newErrors).length === 0) {
-      const data = { depName, depHead, totalEmp };
-      localStorage.setItem(DEPARTMENT_KEY, JSON.stringify(data));
-      setShowSuccess(true);
-      setTimeout(() => {
-        setShowSuccess(false);
-      }, 1000);
-    }
+  const handleCloseSuccess = () => {
+    setShowSuccess(false);
   };
 
   return (
-    <div className="bg-blue-100 p-4 md:p-16 h-screen">
-      <div className="bg-white md:m-4 md:px-[88px] md:py-[44px] rounded-lg p-3">
-        <h1 className="text-orange-600 md:text-4xl text-xl">
-          Edit Department List
-        </h1>
-        <form className="md:my-4">
-          <div className="flex flex-col gap-5 justify-center  md:items-center">
-            <div className="md:w-[50%]">
-              <div className="flex items-center justify-between md:mr-4 my-2">
-                <label className="font-bold text-lg" htmlFor="depName">
-                  Department Name
-                </label>
-                <button type="button">
-                  <FiEdit3
-                    className="text-orange-600"
-                    onClick={() => onEditClick("depName")}
-                  />
-                </button>
-              </div>
-              <input
-                id="depName"
-                type="text"
-                className="border border-blue-300 w-full rounded-lg p-2"
-                onChange={(e) => setDepName(e.target.value)}
-                value={depName}
-              />
-              {error.depName && <p className="text-red-500">{error.depName}</p>}
-            </div>
-
-            <div className="md:w-[50%]">
-              <div className="flex items-center justify-between md:mr-4 my-2">
-                <label className="font-bold text-lg" htmlFor="depHead">
-                  Department Head
-                </label>
-                <button type="button">
-                  <FiEdit3
-                    className="text-orange-600"
-                    onClick={() => onEditClick("depHead")}
-                  />
-                </button>
-              </div>
-              <input
-                id="depHead"
-                type="text"
-                className="border border-blue-300 w-full rounded-lg p-2"
-                onChange={(e) => setDepHead(e.target.value)}
-                value={depHead}
-              />
-              {error.depHead && <p className="text-red-500">{error.depHead}</p>}
-            </div>
-
-            <div className="md:w-[50%]">
-              <div className="flex items-center justify-between md:mr-4 my-2">
-                <label className="font-bold text-lg" htmlFor="totalEmp">
-                  Total Employees
-                </label>
-                <button type="button">
-                  <FiEdit3
-                    className="text-orange-600"
-                    onClick={() => onEditClick("totalEmp")}
-                  />
-                </button>
-              </div>
-              <input
-                id="totalEmp"
-                type="number"
-                className="border border-blue-300 w-full rounded-lg p-2"
-                onChange={(e) => setTotalEmp(e.target.value)}
-                value={totalEmp}
-              />
-              {error.totalEmp && <p className="text-red-500">{error.totalEmp}</p>}
-            </div>
+    <>
+      <SideBar />
+      <div className="max-w-full px-14 py-11 rounded-lg bg-white">
+        <h2 className="text-2xl font-semibold mb-10 mt-4 text-center text-orange-400">
+          Edit Department
+        </h2>
+        <form
+          onSubmit={handleSubmit}
+          className="flex flex-col md:mx-[240px] mx-[0px]"
+        >
+          <div className="mb-6">
+            <label className="block text-md font-medium text-gray-700">
+              Department Name
+            </label>
+            <input
+              className="w-full mt-4 px-3 py-2 border-cyan-300 border rounded-md focus:outline-none focus:border-cyan-500"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
           </div>
-          <div className="mt-10 text-center">
+          <div className="mb-6">
+            <label className="block text-md font-medium text-gray-700">
+              Department Head
+            </label>
+            <input
+              className="w-full mt-4 px-3 py-2 border-cyan-300 border rounded-md focus:outline-none focus:border-cyan-500"
+              value={head}
+              onChange={(e) => setHead(e.target.value)}
+              required
+            />
+          </div>
+          <div className="mb-6">
+            <label className="block text-md font-medium text-gray-700">
+              Total Employees
+            </label>
+            <input
+              className="w-full mt-4 px-3 py-2 border-cyan-300 border rounded-md focus:outline-none focus:border-cyan-500"
+              value={employees}
+              onChange={(e) => setEmployees(e.target.value)}
+              required
+            />
+          </div>
+          <div className="flex justify-center gap-4">
             <button
-              onClick={handleSubmit}
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold px-8 py-2 mx-3 rounded-lg"
+              type="submit"
+              className="bg-blue-500 hover:bg-blue-600 text-white px-9 text-md py-1 text-medium rounded-md focus:outline-none"
             >
               Save
             </button>
-            <button className="font-bold px-8 py-2 text-blue-400 border border-blue-400 mx-3 rounded-lg">
+            <button
+              type="button"
+              className="bg-white text-blue-500 border border-blue-400 px-7 text-sm font-medium rounded-md focus:outline-none"
+              onClick={() => navigate("/departmentlist")}
+            >
               Cancel
             </button>
           </div>
         </form>
         {showSuccess && (
-          <div className="  fixed inset-0 bg-blue-100 bg-opacity-50 flex justify-center items-center">
-            <div className="bg-[#2a97db] py-8 px-4 md:py-10 md:px-16 rounded-lg">
-              <div className=" md:mt-4 flex flex-col justify-center items-center gap-3">
-                <BsCheck2Circle className="text-white text-[24px] md:text-[80px]" />
-                <span className="text-white text-lg md:text-2xl text-center">
-                  Successfully Save The <br /> Changes
-                </span>
-              </div>
+          <div className="fixed inset-0 bg-[#0098f1] bg-opacity-10 flex justify-center items-center">
+            <div className="bg-[#0098f1] w-[320px] h-[240px] sm:w-[440px] sm:h-[320px] py-8 px-4 sm:py-10 sm:px-16 rounded-lg text-white flex flex-col justify-center items-center">
+              <BsCheck2Circle className="text-3xl sm:text-4xl md:text-6xl mb-4" />
+              <p className="text-center text-xl sm:text-2xl">
+                Department Updated Successfully!
+              </p>
             </div>
           </div>
         )}
       </div>
-    </div>
+    </>
   );
 };
 
-export default EditDepartmentList;
+export default EditDepartment;
