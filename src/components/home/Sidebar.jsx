@@ -542,7 +542,6 @@ import ReportInvoice from "../Report/ReportInvoice";
 import ReportExpenses from "../Report/ReportExpenses";
 import { useSelector } from "react-redux";
 
-
 function SideBar() {
   const [activeTab, setActiveTab] = useState("");
   const [showEmployeeOptions, setShowEmployeeOptions] = useState(false);
@@ -589,8 +588,6 @@ function SideBar() {
   ];
 
   const accountOptions = [
-
-
     {
       title: "Payment",
       component: "PaymentsTab",
@@ -619,8 +616,7 @@ function SideBar() {
   const handleOptionClick = (option) => {
     if (option.title === "Employee") {
       setShowEmployeeOptions(!showEmployeeOptions);
-    }
-    else if (option.title === "Account") {
+    } else if (option.title === "Account") {
       setShowAccountOptions(!showAccountOptions);
     } else if (option.title === "Report") {
       setShowReportOptions(!showReportOptions);
@@ -667,92 +663,27 @@ function SideBar() {
             </div>
             <div className="text-xl text-white flex justify-around pr-10 pb-5 items-center">
               <span
-                className={`cursor-pointer  ${selectedHeader === "Hr"
-                  ? "underline decoration-2 underline-offset-8 "
-                  : ""
-                  }`}
+                className={`cursor-pointer  ${
+                  selectedHeader === "Hr"
+                    ? "underline decoration-2 underline-offset-8 "
+                    : ""
+                }`}
                 onClick={() => handleHeaderClick("Hr")}
               >
                 Hr
               </span>
               <span
-                className={`cursor-pointer  ${selectedHeader === "Projects"
-                  ? "underline decoration-2 underline-offset-8 "
-                  : ""
-                  }`}
+                className={`cursor-pointer  ${
+                  selectedHeader === "Projects"
+                    ? "underline decoration-2 underline-offset-8 "
+                    : ""
+                }`}
                 onClick={() => handleHeaderClick("Projects")}
               >
                 Projects
               </span>
             </div>
 
-            <div className="flex flex-col pr-3 text-white">
-              {options.map((option, index) => (
-                <div key={index}>
-                  <div
-                    className="flex items-center transition-all duration-500 hover:bg-white text-white hover:text-[#e65f2b] w-[200px] mx-0 rounded-tr-3xl rounded-br-3xl cursor-pointer"
-                    onClick={() => handleOptionClick(option)}
-                  >
-                    <div className="p-3 pl-4 text-xl flex items-center">
-                      {option.icon}
-                      <span className="ml-3">{option.title}</span>
-                    </div>
-                    {option.title === "Employee" && (
-                      <div className="ml-auto pr-4">
-                        {showEmployeeOptions ? <FaChevronUp /> : <FaChevronDown />}
-                      </div>
-                    )}
-                    {option.title === "Account" && (
-                      <div className="ml-auto pr-4">
-                        {showAccountOptions ? <FaChevronUp /> : <FaChevronDown />}
-                      </div>
-                    )}
-                  </div>
-                  {option.title === "Employee" && showEmployeeOptions && (
-                    <div className="transition-all duration-500 ml-8 ">
-                      {employeeOptions.map((item, idx) => (
-                        <div
-                          key={idx}
-                          className="flex items-center transition-all duration-500 hover:bg-white text-white hover:text-[#e65f2b] w-[200px] mx-0 rounded-tr-3xl rounded-br-3xl cursor-pointer"
-                          onClick={() => handleEmployeeOptionClick(item)}
-                        >
-                          <div className="p-3 pl-4 text-xl flex items-center">
-                            {item.icon}
-                            <span className="ml-3">{item.title}</span>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                  {option.title === "Account" && showAccountOptions && (
-                    <div className="transition-all duration-500 ml-8 ">
-                      {accountOptions.map((item, idx) => (
-                        <div
-                          key={idx}
-                          className="flex items-center transition-all duration-500 hover:bg-white text-white hover:text-[#e65f2b] w-[200px] mx-0 rounded-tr-3xl rounded-br-3xl cursor-pointer"
-                          onClick={() => handleAccountOptionClick(item)}
-                        >
-                          <div className="p-3 pl-4 text-xl flex items-center">
-                            {item.icon}
-                            <span className="ml-3">{item.title}</span>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="flex-1">
-            {/* {activeTab === "EmployeeTab" && <EmployeeTab />} */}
-            {activeTab === "AllEmployees" && <AllEmployees />}
-            {activeTab === "LeaveRequestsTab" && <LeaveRequestsTab />}
-            {activeTab === "AttendanceTab" && <AttendanceTab />}
-            {activeTab === "DepartmentTab" && <DepartmentTab />}
-            {activeTab === "HolidayTab" && <HolidayList />}
-            {/* {activeTab === "DepartmentTab" && <DepartmentTab />} */}
-            {activeTab === "PaymentsTab" && < AccountPayments />}
             <div className="flex flex-col pr-3 text-white">
               {options.map((option, index) => (
                 <div key={index}>
@@ -862,14 +793,13 @@ function SideBar() {
             {activeTab === "PaymentsTab" && <AccountPayments />}
             {activeTab === "ExpensesTab" && <AccountExpenses />}
             {activeTab === "InvoiceTab" && <AccountInvoice />}
+            {activeTab === "ReportInvoice" && <ReportInvoice />}
+            {activeTab === "ReportExpenses" && <ReportExpenses />}
           </div>
         </div>
       </div>
-      {activeTab === "ReportInvoice" && <ReportInvoice />}
-      {activeTab === "ReportExpenses" && <ReportExpenses />}
     </>
   );
 }
 
 export default SideBar;
-
