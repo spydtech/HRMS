@@ -236,11 +236,11 @@ const AddEmployee = () => {
 
           {/* Success message */}
           {showSuccess && (
-            <div className="fixed inset-0 bg-blue-100 bg-opacity-50 flex justify-center items-center">
-              <div className="bg-blue-500   py-8 px-4 md:py-10 md:px-16 rounded-lg text-white">
-                <BsCheck2Circle className="text-4xl md:text-6xl mb-4 mx-auto" />
-                <p className="text-center text-lg md:text-2xl">
-                  Employee added successfully!
+            <div className="fixed inset-0 bg-[#0098f1] bg-opacity-10 flex justify-center items-center">
+              <div className="bg-[#0098f1] w-[320px] h-[240px] sm:w-[440px] sm:h-[320px] py-8 px-4 sm:py-10 sm:px-16 rounded-lg text-white flex flex-col justify-center items-center">
+                <BsCheck2Circle className="text-3xl sm:text-4xl md:text-6xl mb-4" />
+                <p className="text-center text-xl sm:text-2xl">
+                  Employee Added Successfully!
                 </p>
               </div>
             </div>

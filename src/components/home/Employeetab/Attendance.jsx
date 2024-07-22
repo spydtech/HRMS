@@ -108,7 +108,7 @@ function Attendance() {
       <SideBar />
       <div
         id="main"
-        className="h-screen w-[1000px] p-4 mt-24 ml-[240px]"
+        className="h-screen w-[1000px] p-4 mt-4 ml-[240px]"
         // className="h-screen w-screen bg-[#0098f1] bg-opacity-10 p-4 mt-24"
       >
         <div className="ml-5">

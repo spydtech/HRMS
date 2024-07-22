@@ -35,7 +35,7 @@ function LeaveRequest() {
   return (
     <>
       <SideBar />
-      <div id="main" className="h-screen  bg-transparent p-4 mt-24 ml-[240px]">
+      <div id="main" className="h-screen  bg-transparent p-4 mt-4 ml-[240px]">
         <div className="ml-5 ">
           <p className="text-[#e65f2b] font-semibold">
             Employees/Leave Requests

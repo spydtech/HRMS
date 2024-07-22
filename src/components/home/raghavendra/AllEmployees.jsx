@@ -124,7 +124,7 @@ function AllEmployees() {
                   <td className="py-2 px-4 border-b bg-transparent text-center">
                     <img
                       src={employee.file}
-                      alt=""
+                      alt="DP"
                       className="w-10 h-10 rounded-full"
                     />
                   </td>

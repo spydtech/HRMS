@@ -1,46 +1,22 @@
-import React, { useState, useEffect, useRef } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import { FiEdit3 } from "react-icons/fi";
+import React, { useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { BsCheck2Circle } from "react-icons/bs";
 import SideBar from "../Sidebar";
 
 const EMPLOYEE_KEY = "employee_data";
 
-const EditEmployee = () => {
-  const { id } = useParams();
-  const navigate = useNavigate();
-  const buttonRef = useRef(null);
-
+const AddEmployee = () => {
   const [name, setName] = useState("");
   const [empId, setEmpId] = useState("");
   const [contact, setContact] = useState("");
   const [date, setDate] = useState("");
   const [email, setEmail] = useState("");
   const [role, setRole] = useState("");
-  const [file, setFile] = useState(null);
+  const [file, setFile] = useState("https://via.placeholder.com/150");
   const [showSuccess, setShowSuccess] = useState(false);
   const [errors, setErrors] = useState({});
-
-  useEffect(() => {
-    const existingEmployees =
-      JSON.parse(localStorage.getItem(EMPLOYEE_KEY)) || [];
-    const employeeToUpdate = existingEmployees.find(
-      (emp) => emp.id === parseInt(id)
-    );
-    if (employeeToUpdate) {
-      setName(employeeToUpdate.name);
-      setEmpId(employeeToUpdate.empId);
-      setContact(employeeToUpdate.contact);
-      setDate(employeeToUpdate.date);
-      setEmail(employeeToUpdate.email);
-      setRole(employeeToUpdate.role);
-    }
-  }, [id]);
-
-  const onEditClick = (id) => {
-    const element = document.querySelector("#" + id);
-    element.focus();
-  };
+  const buttonRef = useRef(null);
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -57,29 +33,29 @@ const EditEmployee = () => {
     setErrors(newErrors);
 
     if (Object.keys(newErrors).length === 0) {
-      const updatedEmployee = {
-        id: parseInt(id),
+      const newEmployee = {
+        id: Date.now(),
         name,
         empId,
         contact,
         date,
         email,
         role,
-        dp: URL.createObjectURL(file), // Assuming dp is updated with file
+        dp: "https://via.placeholder.com/40", // Example placeholder for dp
       };
 
       const existingEmployees =
         JSON.parse(localStorage.getItem(EMPLOYEE_KEY)) || [];
-      const updatedEmployees = existingEmployees.map((emp) =>
-        emp.id === updatedEmployee.id ? updatedEmployee : emp
+      localStorage.setItem(
+        EMPLOYEE_KEY,
+        JSON.stringify([...existingEmployees, newEmployee])
       );
 
-      localStorage.setItem(EMPLOYEE_KEY, JSON.stringify(updatedEmployees));
       setShowSuccess(true);
       setTimeout(() => {
         setShowSuccess(false);
         navigate("/allemployees");
-      }, 1000);
+      }, 1500);
     }
   };
 
@@ -96,144 +72,135 @@ const EditEmployee = () => {
       <SideBar />
       <div className="ml-[240px] p-4 bg-fit">
         <div className="bg-white md:m-4 md:px-[88px] md:py-[44px] rounded-lg p-3">
-          <h1 className="text-orange-600 md:text-4xl text-xl">Edit Employee</h1>
-          <form className="md:my-4">
+          <h1 className="text-orange-600 md:text-4xl text-xl">
+            Add New Employee
+          </h1>
+          <form className="md:my-4" onSubmit={handleSubmit}>
             <div className="grid md:grid-cols-2 md:gap-6">
+              {/* Name */}
               <div>
-                <div className="flex items-center justify-between mr-4 my-2">
+                <div className="flex items-center justify-between my-2">
                   <label className="font-bold text-lg" htmlFor="name">
                     Name
                   </label>
-                  <button type="button">
-                    <FiEdit3
-                      className="text-orange-600"
-                      onClick={() => onEditClick("name")}
-                    />
-                  </button>
                 </div>
                 <input
-                  id="name"
                   type="text"
-                  className="border border-blue-300 w-full rounded-lg p-2"
-                  onChange={(e) => setName(e.target.value)}
+                  id="name"
+                  name="name"
                   value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  className={`border ${
+                    errors.name ? "border-red-300" : "border-blue-300"
+                  } w-full rounded-lg p-2`}
                 />
                 {errors.name && <p className="text-red-500">{errors.name}</p>}
               </div>
 
+              {/* Employee ID */}
               <div>
-                <div className="flex items-center justify-between mr-4 my-2">
+                <div className="flex items-center justify-between my-2">
                   <label className="font-bold text-lg" htmlFor="empId">
                     Employee ID
                   </label>
-                  <button type="button">
-                    <FiEdit3
-                      className="text-orange-600"
-                      onClick={() => onEditClick("empId")}
-                    />
-                  </button>
                 </div>
                 <input
-                  id="empId"
                   type="text"
-                  className="border border-blue-300 w-full rounded-lg p-2"
-                  onChange={(e) => setEmpId(e.target.value)}
+                  id="empId"
+                  name="empId"
                   value={empId}
+                  onChange={(e) => setEmpId(e.target.value)}
+                  className={`border ${
+                    errors.empId ? "border-red-300" : "border-blue-300"
+                  } w-full rounded-lg p-2`}
                 />
                 {errors.empId && <p className="text-red-500">{errors.empId}</p>}
               </div>
 
+              {/* Contact Number */}
               <div>
-                <div className="flex items-center justify-between mr-4 my-2">
+                <div className="flex items-center justify-between my-2">
                   <label className="font-bold text-lg" htmlFor="contact">
                     Contact Number
                   </label>
-                  <button type="button">
-                    <FiEdit3
-                      className="text-orange-600"
-                      onClick={() => onEditClick("contact")}
-                    />
-                  </button>
                 </div>
                 <input
-                  id="contact"
                   type="text"
-                  className="border border-blue-300 w-full rounded-lg p-2"
-                  onChange={(e) => setContact(e.target.value)}
+                  id="contact"
+                  name="contact"
                   value={contact}
+                  onChange={(e) => setContact(e.target.value)}
+                  className={`border ${
+                    errors.contact ? "border-red-300" : "border-blue-300"
+                  } w-full rounded-lg p-2`}
                 />
                 {errors.contact && (
                   <p className="text-red-500">{errors.contact}</p>
                 )}
               </div>
 
+              {/* Joining Date */}
               <div>
-                <div className="flex items-center justify-between mr-4 my-2">
+                <div className="flex items-center justify-between my-2">
                   <label className="font-bold text-lg" htmlFor="date">
                     Joining Date
                   </label>
-                  <button type="button">
-                    <FiEdit3
-                      className="text-orange-600"
-                      onClick={() => onEditClick("date")}
-                    />
-                  </button>
                 </div>
                 <input
-                  id="date"
                   type="date"
-                  className="border border-blue-300 w-full rounded-lg p-2"
-                  onChange={(e) => setDate(e.target.value)}
+                  id="date"
+                  name="date"
                   value={date}
+                  onChange={(e) => setDate(e.target.value)}
+                  className={`border ${
+                    errors.date ? "border-red-300" : "border-blue-300"
+                  } w-full rounded-lg p-2`}
                 />
                 {errors.date && <p className="text-red-500">{errors.date}</p>}
               </div>
 
+              {/* Email */}
               <div>
-                <div className="flex items-center justify-between mr-4 my-2">
+                <div className="flex items-center justify-between my-2">
                   <label className="font-bold text-lg" htmlFor="email">
                     Email
                   </label>
-                  <button type="button">
-                    <FiEdit3
-                      className="text-orange-600"
-                      onClick={() => onEditClick("email")}
-                    />
-                  </button>
                 </div>
                 <input
-                  id="email"
                   type="email"
-                  className="border border-blue-300 w-full rounded-lg p-2"
-                  onChange={(e) => setEmail(e.target.value)}
+                  id="email"
+                  name="email"
                   value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className={`border ${
+                    errors.email ? "border-red-300" : "border-blue-300"
+                  } w-full rounded-lg p-2`}
                 />
                 {errors.email && <p className="text-red-500">{errors.email}</p>}
               </div>
 
+              {/* Role */}
               <div>
-                <div className="flex items-center justify-between mr-4 my-2">
+                <div className="flex items-center justify-between my-2">
                   <label className="font-bold text-lg" htmlFor="role">
                     Role
                   </label>
-                  <button type="button">
-                    <FiEdit3
-                      className="text-orange-600"
-                      onClick={() => onEditClick("role")}
-                    />
-                  </button>
                 </div>
                 <input
-                  id="role"
                   type="text"
-                  className="border border-blue-300 w-full rounded-lg p-2"
-                  onChange={(e) => setRole(e.target.value)}
+                  id="role"
+                  name="role"
                   value={role}
+                  onChange={(e) => setRole(e.target.value)}
+                  className={`border ${
+                    errors.role ? "border-red-300" : "border-blue-300"
+                  } w-full rounded-lg p-2`}
                 />
                 {errors.role && <p className="text-red-500">{errors.role}</p>}
               </div>
             </div>
 
+            {/* File Upload */}
             <div className="mt-4">
               <button
                 type="button"
@@ -243,42 +210,37 @@ const EditEmployee = () => {
                 Choose File
               </button>
               <input
-                id="file"
                 type="file"
-                className="hidden"
-                ref={buttonRef}
+                id="file"
+                name="file"
+                accept="image/*" // <-- Restrict to image files only
                 onChange={onFileUpload}
-                accept=".jpg, .jpeg, .png"
+                ref={buttonRef}
+                className="hidden"
               />
               {errors.file && (
                 <p className="text-red-500 mt-2">{errors.file}</p>
               )}
             </div>
 
+            {/* Submit Button */}
             <div className="mt-4 flex justify-end">
               <button
                 type="submit"
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold px-8 py-2 rounded-lg mr-4"
-                onClick={handleSubmit}
+                className="bg-blue-500 hover:bg-blue-700 text-white font-bold px-8 py-2 rounded-lg"
               >
-                Save
-              </button>
-              <button
-                type="button"
-                onClick={() => navigate("/allemployees")}
-                className="text-blue-500 hover:text-blue-700 font-bold px-8 py-2 border border-blue-500 rounded-lg"
-              >
-                Cancel
+                Add Employee
               </button>
             </div>
           </form>
 
+          {/* Success message */}
           {showSuccess && (
             <div className="fixed inset-0 bg-[#0098f1] bg-opacity-10 flex justify-center items-center">
               <div className="bg-[#0098f1] w-[320px] h-[240px] sm:w-[440px] sm:h-[320px] py-8 px-4 sm:py-10 sm:px-16 rounded-lg text-white flex flex-col justify-center items-center">
                 <BsCheck2Circle className="text-3xl sm:text-4xl md:text-6xl mb-4" />
                 <p className="text-center text-xl sm:text-2xl">
-                  Employee Updated Successfully!
+                  Employee Added Successfully!
                 </p>
               </div>
             </div>
@@ -289,4 +251,4 @@ const EditEmployee = () => {
   );
 };
 
-export default EditEmployee;
+export default AddEmployee;
