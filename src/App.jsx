@@ -27,12 +27,12 @@ function App() {
           {/* <Route path="/navbar" element={<EmployeeNavBar />} /> */}
           <Route path="/allemployees" element={<AllEmployees />} />
           <Route path="/leaverequest" element={<LeaveRequest />} />
-          <Route path="/departmentlist" element={<DepartmentList />} />
+          {/* <Route path="/departmentlist" element={<DepartmentList />} /> */}
           <Route path="/new-employee" element={<NewEmployee />} />
           <Route path="/add-department" element={<AddDepartment />} />
           <Route path="/add-leavePage" element={<AddLeavePage />} />
-          <Route path="/edit-departmentList" element={<EditDepartmentList />} />
-          <Route path="/edit-employee" element={<EditEmployee />} />
+          <Route path="/edit-departmentList/:id" element={<EditDepartmentList />} />
+          <Route  path="/edit-employee/:id"  element={<EditEmployee />} />
           <Route path="/edit-department" element={<EditDepartment />} />
         </Routes>
       </BrowserRouter>
