@@ -12,46 +12,46 @@ import { GoChevronRight, GoChevronLeft } from "react-icons/go";
 
 const socialMedia = [
   {
-    image: "src/assets/hr_Social/socialMedia/linkedin.png",
+    image: "src/assets/hrSocial/socialMedia/linkedin.png",
     followers: "Followers 2510",
   },
   {
-    image: "src/assets/hr_Social/socialMedia/instagram.png",
+    image: "src/assets/hrSocial/socialMedia/instagram.png",
     followers: "Followers 2510",
   },
   {
-    image: "src/assets/hr_Social/socialMedia/twitter.png",
+    image: "src/assets/hrSocial/socialMedia/twitter.png",
     followers: "Followers 2510",
   },
   {
-    image: "src/assets/hr_Social/socialMedia/facebook.png",
+    image: "src/assets/hrSocial/socialMedia/facebook.png",
     followers: "Followers 2519",
   },
   {
-    image: "src/assets/hr_Social/socialMedia/google.png",
+    image: "src/assets/hrSocial/socialMedia/google.png",
     followers: "Followers 2519",
   },
   {
-    image: "src/assets/hr_Social/socialMedia/youtube.png",
+    image: "src/assets/hrSocial/socialMedia/youtube.png",
     followers: "Followers 2519",
   },
 ];
 
 const facebookPosts = [
   {
-    image: "src/assets/hr_Social/facebook/post_pic.png",
+    image: "src/assets/hrSocial/facebook/post_pic.png",
     name: "Chris Fox",
     description: "Contrary to popular belief not simply text",
     time: "1 hr ago",
   },
   {
-    image: "src/assets/hr_Social/facebook/post_pic.png",
+    image: "src/assets/hrSocial/facebook/post_pic.png",
     name: "Chris Fox",
     description: "Contrary to popular belief not simply text",
     time: "1 hr ago",
   },
   {
-    image: "src/assets/hr_Social/facebook/post_pic.png",
+    image: "src/assets/hrSocial/facebook/post_pic.png",
     name: "Chris Fox",
     description: "Contrary to popular belief not simply text",
     time: "1 hr ago",
@@ -60,19 +60,19 @@ const facebookPosts = [
 
 const twitterPosts = [
   {
-    image: "src/assets/hr_Social/twitter/post_pic.png",
+    image: "src/assets/hrSocial/twitter/post_pic.png",
     name: "Chris Fox",
     description: "Contrary to popular belief not simply text",
     time: "1 hr ago",
   },
   {
-    image: "src/assets/hr_Social/twitter/post_pic.png",
+    image: "src/assets/hrSocial/twitter/post_pic.png",
     name: "Chris Fox",
     description: "Contrary to popular belief not simply text",
     time: "1 hr ago",
   },
   {
-    image: "src/assets/hr_Social/twitter/post_pic.png",
+    image: "src/assets/hrSocial/twitter/post_pic.png",
     name: "Chris Fox",
     description: "Contrary to popular belief not simply text",
     time: "1 hr ago",
@@ -83,7 +83,7 @@ const mediaData = [
   {
     id: 1,
     media:
-      "src/assets/hr_Social/socialMedia/linkedin.png",
+      "src/assets/hrSocial/socialMedia/linkedin.png",
     name: "LINKED IN",
     like: "19K",
     comment: "19K",
@@ -93,7 +93,7 @@ const mediaData = [
   {
     id: 2,
     media:
-      "src/assets/hr_Social/socialMedia/instagram.png",
+      "src/assets/hrSocial/socialMedia/instagram.png",
     name: "INSTAGRAM",
     like: "19K",
     comment: "19K",
@@ -103,7 +103,7 @@ const mediaData = [
   {
     id: 3,
     media:
-      "src/assets/hr_Social/socialMedia/twitter.png",
+      "src/assets/hrSocial/socialMedia/twitter.png",
     name: "TWITTER",
     like: "19K",
     comment: "19K",
@@ -113,7 +113,7 @@ const mediaData = [
   {
     id: 4,
     media:
-      "src/assets/hr_Social/socialMedia/facebook.png",
+      "src/assets/hrSocial/socialMedia/facebook.png",
     name: "FACEBOOK",
     like: "19K",
     comment: "19K",
@@ -123,7 +123,7 @@ const mediaData = [
   {
     id: 5,
     media:
-      "src/assets/hr_Social/socialMedia/google.png",
+      "src/assets/hrSocial/socialMedia/google.png",
     name: "GOOGLE PLUS",
     like: "19K",
     comment: "19K",
@@ -133,7 +133,7 @@ const mediaData = [
   {
     id: 6,
     media:
-      "src/assets/hr_Social/socialMedia/youtube.png",
+      "src/assets/hrSocial/socialMedia/youtube.png",
     name: "YOUTUBE",
     like: "19K",
     comment: "19K",

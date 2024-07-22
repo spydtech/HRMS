@@ -1,5 +1,5 @@
 import React from 'react';
-import teamImage from '../assets/image1.png'; // Replace with your actual team image path
+// import teamImage from '../assets/image1.png'; // Replace with your actual team image path
 
 const Activities = () => {
   const activities = [
@@ -35,7 +35,7 @@ const Activities = () => {
   ];
 
   return (
-    <div className="p-6 h-screen bg-opacity-10 bg-[#0098f1]">
+    <div className="p-6 h-screen mt-24">
       <h2 className="text-lg font-bold text-orange-600 mb-4">Activities</h2>
       <div className="relative">
         <div className="absolute left-5 top-1 h-full  border-l-2 border-zinc-300"></div>
@@ -53,7 +53,7 @@ const Activities = () => {
                   {[...Array(activity.teamMembers)].map((_, i) => (
                     <img
                       key={i}
-                      src={teamImage}
+                      // src={teamImage}
                       alt="team-member"
                       className="w-6 h-6 rounded-full ml-3"
                     />

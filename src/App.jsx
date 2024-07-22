@@ -15,7 +15,8 @@ import EditEmployee from "./components/home/employeeForm/EditEmployee";
 import EditDepartment from "./components/home/employeeForm/EditDepartment"
 // import EmployeeNavBar from "./components/home/employeetab/EmployeeNavBar"
 import Login from "./components/authentication/login/Login";
-
+import ForgotPassword from "./components/authentication/forgotPassword/ForgotPassword"
+import NotFoundPage from "./components/authentication/notFoundPage/NotFoundPage"
 import Register from './components/authentication/register/Register';
 function App() {
   return (
@@ -25,6 +26,8 @@ function App() {
           <Route path="/" element={<Sidebar />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/forget-password" element={<ForgotPassword />} />
+          <Route path="/404" element={<NotFoundPage />} />
           {/* <Route path="/navbar" element={<EmployeeNavBar />} /> */}
           <Route path="/allemployees" element={<AllEmployees />} />
           <Route path="/leaverequest" element={<LeaveRequest />} />

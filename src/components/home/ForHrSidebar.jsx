@@ -33,18 +33,18 @@ const ForHrSidebar = ({setActiveTab}) =>{
   const options = [
     {
       title: "HR Dashboard",
-      component: "",
+      component: "HRDashboard",
       icon: <FaTachometerAlt />,
     },
     { title: "Holidays", component: "HolidayTab", icon: <FaCalendarAlt /> },
-    { title: "Events", component: "", icon: <FaCalendarCheck /> },
-    { title: "Activities", component: "", icon: <FaTasks /> },
-    { title: "HR Social", component: "", icon: <MdOutlineSocialDistance /> },
+    { title: "Events", component: "Events", icon: <FaCalendarCheck /> },
+    { title: "Activities", component: "Activities", icon: <FaTasks /> },
+    { title: "HR Social", component: "HrSocial", icon: <MdOutlineSocialDistance /> },
     { title: "Employee", component: "", icon: <FaUserFriends /> },
     { title: "Account", component: "", icon: <FaUserFriends /> },
     { title: "PayRoll", component: "", icon: <FaMoneyCheckAlt /> },
     { title: "Report", component: "", icon: <FaFileAlt /> },
-    { title: "User", component: "", icon: <FaUser /> },
+    { title: "User", component: "UserList", icon: <FaUser /> },
     { title: "Authentication", component: "", icon: <FaLock /> },
   ];
 

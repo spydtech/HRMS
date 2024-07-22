@@ -104,8 +104,8 @@ const ReactCalendar = () => {
 
 const Events = () => {
     return (
-        <div className="bg-sky-100 p-5">
-            <h1 className="text-3xl text-orange-500 font-medium font-roboto mb-4">
+        <div className="p-5 mt-24">
+            <h1 className="text-xl text-orange-500 font-medium font-roboto mb-4">
                 Users List
             </h1>
 

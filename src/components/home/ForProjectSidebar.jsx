@@ -32,20 +32,20 @@ const ForProjectSidebar = ({setActiveTab}) =>{
 
   const options = [
     {
-      title: "HR Dashboard",
+      title: "Dashboard",
       component: "",
       icon: <FaTachometerAlt />,
     },
-    { title: "Holidays my day", component: "HolidayTab", icon: <FaCalendarAlt /> },
-    { title: "Events", component: "", icon: <FaCalendarCheck /> },
-    { title: "Activities", component: "", icon: <FaTasks /> },
-    { title: "HR Social", component: "", icon: <MdOutlineSocialDistance /> },
-    { title: "Employee", component: "", icon: <FaUserFriends /> },
-    { title: "Account", component: "", icon: <FaUserFriends /> },
-    { title: "PayRoll", component: "", icon: <FaMoneyCheckAlt /> },
-    { title: "Report", component: "", icon: <FaFileAlt /> },
-    { title: "User", component: "", icon: <FaUser /> },
-    { title: "Authentication", component: "", icon: <FaLock /> },
+    { title: "Inbox", component: "HolidayTab", icon: <FaCalendarAlt /> },
+    { title: "Chat", component: "", icon: <FaCalendarCheck /> },
+    { title: "Project", component: "", icon: <FaTasks /> },
+    { title: "Clients", component: "", icon: <MdOutlineSocialDistance /> },
+    { title: "Teams", component: "", icon: <FaUserFriends /> },
+    { title: "Tickets", component: "", icon: <FaUserFriends /> },
+    // { title: "PayRoll", component: "", icon: <FaMoneyCheckAlt /> },
+    // { title: "Report", component: "", icon: <FaFileAlt /> },
+    // { title: "User", component: "", icon: <FaUser /> },
+    // { title: "Authentication", component: "", icon: <FaLock /> },
   ];
 
   const employeeOptions = [

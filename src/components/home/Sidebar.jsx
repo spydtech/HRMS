@@ -1504,8 +1504,11 @@ import ReportExpenses from "../report/ReportExpenses";
 import { useSelector } from "react-redux";
 import ForHrSidebar from "./ForHrSidebar";
 import ForProjectSidebar from "./ForProjectSidebar";
-// import HRDashboard from "../hr_dashboard/HRDashboard";
-
+import HRDashboard from "../hr_dashboard/HRDashboard";
+import Activities from "../activities/Activities";
+import Events from "../events/Events"
+import HrSocial from "../hr_social/HrSocial"
+import UserList from "../user/UserList"
 const SideBar = () => {
   const [activeTab, setActiveTab] = useState("");
   const [selectedHeader, setSelectedHeader] = useState("Hr");
@@ -1573,6 +1576,11 @@ const SideBar = () => {
             {activeTab === "InvoiceTab" && <AccountInvoice />}
             {activeTab === "ReportInvoice" && <ReportInvoice />}
             {activeTab === "ReportExpenses" && <ReportExpenses />}
+            {activeTab === "HRDashboard" && <HRDashboard />}
+            {activeTab === "Activities" && <Activities />}
+            {activeTab === "Events" && <Events />}
+            {activeTab === "HrSocial" && <HrSocial />}
+            {activeTab === "UserList" && <UserList />}
           </div>
         </div>
       </div>
