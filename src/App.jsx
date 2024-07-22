@@ -14,8 +14,9 @@ import EditDepartmentList from "./components/home/employeeForm/EditDepartmentLis
 import EditEmployee from "./components/home/employeeForm/EditEmployee";
 import EditDepartment from "./components/home/employeeForm/EditDepartment"
 // import EmployeeNavBar from "./components/home/employeetab/EmployeeNavBar"
-import Login from "./components/Authentication/login/Login";
-import Register from './components/Authentication/register/Register';
+import Login from "./components/authentication/login/Login";
+
+import Register from './components/authentication/register/Register';
 function App() {
   return (
     <div>
