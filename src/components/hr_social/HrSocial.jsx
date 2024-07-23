@@ -1,13 +1,23 @@
 import React, { useRef, useState } from "react";
+import { Bar } from "react-chartjs-2";
 import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
   Tooltip,
   Legend,
-} from "recharts";
+} from "chart.js";
+
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend
+);
 import { GoChevronRight, GoChevronLeft } from "react-icons/go";
 
 const socialMedia = [
@@ -82,8 +92,7 @@ const twitterPosts = [
 const mediaData = [
   {
     id: 1,
-    media:
-      "src/assets/hrSocial/socialMedia/linkedin.png",
+    media: "src/assets/hrSocial/socialMedia/linkedin.png",
     name: "LINKED IN",
     like: "19K",
     comment: "19K",
@@ -92,8 +101,7 @@ const mediaData = [
   },
   {
     id: 2,
-    media:
-      "src/assets/hrSocial/socialMedia/instagram.png",
+    media: "src/assets/hrSocial/socialMedia/instagram.png",
     name: "INSTAGRAM",
     like: "19K",
     comment: "19K",
@@ -102,8 +110,7 @@ const mediaData = [
   },
   {
     id: 3,
-    media:
-      "src/assets/hrSocial/socialMedia/twitter.png",
+    media: "src/assets/hrSocial/socialMedia/twitter.png",
     name: "TWITTER",
     like: "19K",
     comment: "19K",
@@ -112,8 +119,7 @@ const mediaData = [
   },
   {
     id: 4,
-    media:
-      "src/assets/hrSocial/socialMedia/facebook.png",
+    media: "src/assets/hrSocial/socialMedia/facebook.png",
     name: "FACEBOOK",
     like: "19K",
     comment: "19K",
@@ -122,8 +128,7 @@ const mediaData = [
   },
   {
     id: 5,
-    media:
-      "src/assets/hrSocial/socialMedia/google.png",
+    media: "src/assets/hrSocial/socialMedia/google.png",
     name: "GOOGLE PLUS",
     like: "19K",
     comment: "19K",
@@ -132,8 +137,7 @@ const mediaData = [
   },
   {
     id: 6,
-    media:
-      "src/assets/hrSocial/socialMedia/youtube.png",
+    media: "src/assets/hrSocial/socialMedia/youtube.png",
     name: "YOUTUBE",
     like: "19K",
     comment: "19K",
@@ -142,93 +146,160 @@ const mediaData = [
   },
 ];
 
-const data = [
-  { name: "Jan", LinkedIn: 500, Facebook: 700, Instagram: 1000 },
-  { name: "Feb", LinkedIn: 700, Facebook: 900, Instagram: 1200 },
-  { name: "Mar", LinkedIn: 1000, Facebook: 1200, Instagram: 1500 },
-  { name: "Apr", LinkedIn: 800, Facebook: 1100, Instagram: 1400 },
-  { name: "May", LinkedIn: 900, Facebook: 1300, Instagram: 1600 },
-  { name: "Jun", LinkedIn: 1100, Facebook: 1400, Instagram: 1800 },
-  { name: "Jul", LinkedIn: 1300, Facebook: 1500, Instagram: 1900 },
-  { name: "Aug", LinkedIn: 1200, Facebook: 1600, Instagram: 2000 },
-  { name: "Sep", LinkedIn: 1400, Facebook: 1700, Instagram: 2100 },
-  { name: "Oct", LinkedIn: 1500, Facebook: 1900, Instagram: 2200 },
-  { name: "Nov", LinkedIn: 1700, Facebook: 2100, Instagram: 2400 },
-  { name: "Dec", LinkedIn: 1800, Facebook: 2300, Instagram: 2500 },
+const originalData = [
+  [400, 500, 300],
+  [600, 700, 400],
+  [800, 600, 500],
+  [1200, 800, 700],
+  [900, 1000, 600],
+  [1100, 900, 800],
+  [1400, 1200, 1000],
+  [1300, 1100, 900],
+  [1200, 1300, 1100],
+  [1500, 1400, 1200],
+  [1600, 1500, 1300],
+  [1800, 1600, 1400],
 ];
 
+// Normalize the data
+const normalizedData = originalData.map((monthData) => {
+  const total = monthData.reduce((acc, value) => acc + value, 0);
+  return monthData.map((value) => (value / total) * 2500); // scale to max height 2500
+});
+
+const data = {
+  labels: [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ],
+  datasets: [
+    {
+      label: "LinkedIn",
+      data: normalizedData.map((monthData) => monthData[0]),
+      backgroundColor: "rgba(0, 123, 255, 0.8)",
+      stack: "Stack 0",
+      borderRadius: 10,
+      barThickness : 17
+    },
+    {
+      label: "Facebook",
+      data: normalizedData.map((monthData) => monthData[1]),
+      backgroundColor: "rgba(0, 123, 255, 0.6)",
+      stack: "Stack 0",
+      borderRadius: 10,
+      barThickness : 17
+    },
+    {
+      label: "Instagram",
+      data: normalizedData.map((monthData) => monthData[2]),
+      backgroundColor: "rgba(0, 123, 255, 0.4)",
+      stack: "Stack 0",
+      borderRadius: 10,
+      barThickness : 17
+    },
+  ],
+};
+
+const options = {
+  responsive: true,
+  plugins: {
+    legend: {
+      position: "bottom",
+      labels: {
+        font: {size:12},
+        padding:14,
+        boxWidth: 20,
+        boxHeight :20,
+        usePointStyle: false,
+        pointStyle: "rectRounded",
+        generateLabels: (chart) => {
+          const datasets = chart.data.datasets;
+          return datasets.map((dataset, i) => ({
+            text: dataset.label,
+            fillStyle: dataset.backgroundColor,
+            strokeStyle: dataset.backgroundColor,
+            index: i,
+          }));
+        },
+      },
+    },
+    title: {
+      display: false,
+      text: "Social Statistics",
+    },
+  },
+  scales: {
+    x: {
+      stacked: true,
+      grid: {
+        display: false,
+      },
+    },
+    y: {
+      stacked: true,
+      grid: {
+        display: false,
+      },
+      max: 2500,
+    },
+  },
+};
+
 const HrSocial = () => {
-  const imageRef = useRef(null)
-  const [currentPage, setCurrentPage] = useState(1)
+  const imageRef = useRef(null);
+  const [currentPage, setCurrentPage] = useState(1);
 
-  const onClickfile = () =>{
-    imageRef.current.click()
-  }
-
-  const legendPayload = [
-    { value: 'LinkedIn', type: 'square', color: 'rgba(0, 152, 241, 1)' },
-    { value: 'Facebook', type: 'square', color: 'rgba(0, 152, 241, 0.6)' },
-    { value: 'Instagram', type: 'square', color: 'rgba(0, 152, 241, 0.3)' },
-  ];
+  const onClickfile = () => {
+    imageRef.current.click();
+  };
 
   const itemsPerPage = 2;
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = mediaData.slice(indexOfFirstItem, indexOfLastItem)
-  const totalPages = Math.ceil(mediaData.length / itemsPerPage)
+  const currentItems = mediaData.slice(indexOfFirstItem, indexOfLastItem);
+  const totalPages = Math.ceil(mediaData.length / itemsPerPage);
 
-  const handleNextPage = () =>{
-    if(currentPage < totalPages) return setCurrentPage(currentPage + 1)
-  }
-  const handlePreviousPage = () =>{
-    if(currentPage > 1) return setCurrentPage(currentPage - 1)
-  }
-
-
+  const handleNextPage = () => {
+    if (currentPage < totalPages) return setCurrentPage(currentPage + 1);
+  };
+  const handlePreviousPage = () => {
+    if (currentPage > 1) return setCurrentPage(currentPage - 1);
+  };
 
   return (
     <div className="mt-24 pl-8">
-      <h1 className="text-[#E65F2B] text-[20px]">
+      <h1 className="text-[#E65F2B] text-[20px] font-semibold">
         <span>HR</span> / <span>HR Social</span>
       </h1>
-      <div className="flex flex-row items-center gap-8 my-8">
+      <div className="flex flex-row items-center gap-8 my-4">
         {socialMedia.map((app) => (
           <div className="flex flex-col items-center gap-2 bg-white rounded-lg px-14 py-8">
-            <img src={app.image} className="h-[50px]" />
+            <img src={app.image} className="h-[30px]" />
             <p>{app.followers}</p>
           </div>
         ))}
       </div>
 
-      <div className="bg-white my-5 p-5">
+      <div className="bg-white my-1 p-5">
         <div className="flex justify-between items-center">
           <h1 className="text-[#E65F2B] text-[20px] font-bold">
             Social Statistics
           </h1>
         </div>
-        <BarChart
-          width={1400}
-          height={500}
-          data={data}
-          margin={{
-            top: 20,
-            right: 30,
-            left: 20,
-            bottom: 5,
-          }}
-        >
-          {/* <CartesianGrid strokeDasharray="3 3" /> */}
-          <XAxis dataKey="name" />
-          <YAxis />
-          <Tooltip />
-          <Legend payload={legendPayload}/>
-          <Bar dataKey="LinkedIn" stackId="a" fill="rgba(0, 152, 241, 1)" />
-          <Bar dataKey="Facebook" stackId="a" fill="rgba(0, 152, 241, 0.6)" />
-          <Bar dataKey="Instagram" stackId="a" fill="rgba(0, 152, 241, 0.3)" />
-        </BarChart>
+        <div className="p-4 max-w-full">
+          <Bar data={data} options={options} />
+        </div>
       </div>
-
-      
 
       <div className="bg-white rounded-lg my-5 p-5">
         <h1 className="text-[20px] text-[#E65F2B] font-bold ">Social Media</h1>
@@ -268,14 +339,20 @@ const HrSocial = () => {
             </tbody>
           </table>
           <div className="flex items-center gap-3 self-end mx-32">
-            <p>{currentPage} of {totalPages}</p>
+            <p>
+              {currentPage} of {totalPages}
+            </p>
             <button
-            onClick={handlePreviousPage} className="bg-[#E65F2B] rounded-full h-12 w-12 flex items-center justify-center text-white">
+              onClick={handlePreviousPage}
+              className="bg-[#E65F2B] rounded-full h-12 w-12 flex items-center justify-center text-white"
+            >
               <GoChevronLeft size={24} />
             </button>
 
             <button
-            onClick={handleNextPage} className="bg-[#E65F2B] rounded-full h-12 w-12 flex items-center justify-center text-white">
+              onClick={handleNextPage}
+              className="bg-[#E65F2B] rounded-full h-12 w-12 flex items-center justify-center text-white"
+            >
               <GoChevronRight size={24} />
             </button>
           </div>
@@ -296,7 +373,11 @@ const HrSocial = () => {
             ></textarea>
           </div>
           <div className="flex gap-3 justify-end my-5">
-            <button type="button" className="bg-[#E65F2B] p-2 rounded-md" onClick={onClickfile}>
+            <button
+              type="button"
+              className="bg-[#E65F2B] p-2 rounded-md"
+              onClick={onClickfile}
+            >
               <img
                 src="src/assets/hrSocial/facebook/vector.png"
                 className="w-[30px]"

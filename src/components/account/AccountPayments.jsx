@@ -7,7 +7,7 @@ const initialData = [
     clientName: "Lucid",
     projectName: "Alpino-Bootstrap 4",
     date: "07,Mar,2021",
-    type: "/images/Frame_Paypal.png",
+    type: "src/assets/accounts/Frame_Paypal.png",
     amount: "$4,205",
   },
   {
@@ -15,7 +15,7 @@ const initialData = [
     clientName: "Lucid",
     projectName: "Nexa Wordpress",
     date: "25,Jun,2021",
-    type: "/images/Frame_masterCard.png",
+    type: "src/assets/accounts/Frame_masterCard.png",
     amount: "$4,205",
   },
   {
@@ -23,7 +23,7 @@ const initialData = [
     clientName: "Lucid",
     projectName: "Lucid HR Management",
     date: "12,Jul,2021",
-    type: "/images/Frame_Paypal.png",
+    type: "src/assets/accounts/Frame_Paypal.png",
     amount: "$4,205",
   },
   {
@@ -31,7 +31,7 @@ const initialData = [
     clientName: "Lucid",
     projectName: "Alpino-Bootstrap 4",
     date: "13,Jul,2021",
-    type: "/images/Frame_Paypal.png",
+    type: "src/assets/accounts/Frame_Paypal.png",
     amount: "$4,205",
   },
   {
@@ -39,48 +39,38 @@ const initialData = [
     clientName: "Lucid",
     projectName: "Alpino-Bootstrap 4",
     date: "07,Mar,2021",
-    type: "/images/Frame_Visa.png",
-    c: "$4,205",
+    type: "src/assets/accounts/Frame_Visa.png",
+    amount: "$4,205",
   },
 ];
 
 const AccountPayments = () => {
-  const [paymentData, setPaymentData] = useState([]);
-
-  useEffect(() => {
-
-    setPaymentData(initialData);
-  }, []);
-
   return (
-    <div className=" mt-24 pl-8">
+    <div className=" mt-24 pl-8" >
       <h1 className="text-[#E65F2B] text-[20px]">
         <span>Accounts</span> / <span>Payments</span>
       </h1>
-      <div className="mt-14">
-        <table className="w-full">
-          <thead>
-            <tr className="bg-[#8fcff5] text-left">
-              <th className="py-4 px-16 border-b bg-[#0098f1] bg-opacity-30 text-center">ID</th>
-              <th className="py-4 px-16 border-b bg-[#0098f1] bg-opacity-30 text-center">Client Name</th>
-              <th className="py-4 px-16 border-b bg-[#0098f1] bg-opacity-30 text-center">Project Name</th>
-              <th className="py-4 px-16 border-b bg-[#0098f1] bg-opacity-30 text-center">Date</th>
-              <th className="py-4 px-16 border-b bg-[#0098f1] bg-opacity-30 text-center">Type</th>
-              <th className="py-4 px-16 border-b bg-[#0098f1] bg-opacity-30 text-center">Amount</th>
+      <div className="mt-14 ">
+      <table className="min-w-full">
+          <thead className="bg-[#0098F1] text-white">
+            <tr>
+              <th className="pl-5 pr-28 py-3 text-left">ID</th>
+              <th className="px-20 py-3 text-left">Client Name</th>
+              <th className="px-20 py-3 text-left">Project Name</th>
+              <th className="px-20 py-3 text-left">Date</th>
+              <th className="px-14 py-3 text-left">Type</th>
+              <th className="px-20 py-3 text-left">Amount</th>
             </tr>
           </thead>
           <tbody>
-            {paymentData.map((item) => (
-              <tr key={item.id} className="font-semibold">
-                <td className="py-2 px-4 border-b bg-transparent text-center">{item.id}</td>
-                <td className="py-2 px-4 border-b bg-transparent text-center">{item.clientName}</td>
-                <td className="py-2 px-4 border-b bg-transparent text-center">{item.projectName}</td>
-                <td className="py-2 px-4 border-b bg-transparent text-center">{item.date}</td>
-
-                <td>
-                  <img src={item.type} alt="Payment Type" />
-                </td>
-                <td>{item.amount}</td>
+            {initialData.map((data) => (
+              <tr key={data.id} className="font-semibold">
+                <td className=" pl-5 pr-28 py-2">{data.id}</td>
+                <td className="py-2 px-20">{data.clientName}</td>
+                <td className="py-2 px-20">{data.projectName}</td>
+                <td className="py-2 px-20">{data.date}</td>
+                <td className="px-14"><img src={data.type} alt="image" /></td>
+                <td className="py-2 px-20">{data.amount}</td>
               </tr>
             ))}
           </tbody>
