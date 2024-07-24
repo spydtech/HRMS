@@ -53,7 +53,7 @@ const AccountExpenses = () => {
     setExpenseData(ExpensesList);
   }, []);
   return (
-    <div className=" pl-8 mt-24">
+    <div className=" pl-6 mt-24">
       <h1 className="text-[#E65F2B] text-[20px]">
         <span>Accounts</span> / <span>Expenses</span>
       </h1>
@@ -61,26 +61,26 @@ const AccountExpenses = () => {
         <table className="w-full text-left">
           <thead className="bg-[#0098f1]  text-white ">
             <tr >
-              <th className="py-2 px-4">Items</th>
-              <th className="py-2 px-4">Order By</th>
-              <th className="py-2 px-4">From</th>
-              <th className="py-2 px-4">Date</th>
-              <th className="py-2 px-4">Paid By</th>
-              <th className="py-2 px-4">Status</th>
-              <th className="py-2 px-4">Amount</th>
+              <th className="py-2 px-7">Items</th>
+              <th className="py-2 px-7">Order By</th>
+              <th className="py-2 px-7">From</th>
+              <th className="py-2 px-7">Date</th>
+              <th className="py-2 px-7">Paid By</th>
+              <th className="py-2 px-7">Status</th>
+              <th className="py-2 px-7">Amount</th>
             </tr>
           </thead>
           <tbody>
             {ExpensesData.map((data) => (
               <tr key={data.id} className="font-semibold">
-                <td className="py-2 px-4">{data.item}</td>
-                <td className="py-2 px-4">{data.orderBy}</td>
-                <td className="py-2 px-4">{data.from}</td>
-                <td className="py-2 px-4">{data.date}</td>
-                <td className="py-2 px-4">
+                <td className="py-2 px-7">{data.item}</td>
+                <td className="py-2 px-7">{data.orderBy}</td>
+                <td className="py-2 px-7">{data.from}</td>
+                <td className="py-2 px-7">{data.date}</td>
+                <td className="py-2 px-7">
                   <img src={data.paidBy} alt="image" />
                 </td>
-                <td className="py-2 px-4">
+                <td className="py-2 px-7">
                   <p
                     type="button"
                     className={`${
@@ -92,7 +92,7 @@ const AccountExpenses = () => {
                     {data.status}
                   </p>
                 </td>
-                <td className="py-2 px-4">{data.amount}</td>
+                <td className="py-2 px-7">{data.amount}</td>
               </tr>
             ))}
           </tbody>
