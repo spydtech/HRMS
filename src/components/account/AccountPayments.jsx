@@ -50,27 +50,27 @@ const AccountPayments = () => {
       <h1 className="text-[#E65F2B] text-[20px]">
         <span>Accounts</span> / <span>Payments</span>
       </h1>
-      <div className="mt-14 ">
-      <table className="min-w-full">
+      <div className="mt-14">
+      <table className="w-full text-left">
           <thead className="bg-[#0098F1] text-white">
             <tr>
-              <th className="pl-5 pr-28 py-3 text-left">ID</th>
-              <th className="px-20 py-3 text-left">Client Name</th>
-              <th className="px-20 py-3 text-left">Project Name</th>
-              <th className="px-20 py-3 text-left">Date</th>
-              <th className="px-14 py-3 text-left">Type</th>
-              <th className="px-20 py-3 text-left">Amount</th>
+              <th className="py-2 px-4">ID</th>
+              <th className="py-2 px-4">Client Name</th>
+              <th className="py-2 px-4">Project Name</th>
+              <th className="py-2 px-4">Date</th>
+              <th className="py-2 px-4">Type</th>
+              <th className="py-2 px-4">Amount</th>
             </tr>
           </thead>
           <tbody>
             {initialData.map((data) => (
               <tr key={data.id} className="font-semibold">
-                <td className=" pl-5 pr-28 py-2">{data.id}</td>
-                <td className="py-2 px-20">{data.clientName}</td>
-                <td className="py-2 px-20">{data.projectName}</td>
-                <td className="py-2 px-20">{data.date}</td>
-                <td className="px-14"><img src={data.type} alt="image" /></td>
-                <td className="py-2 px-20">{data.amount}</td>
+                <td className="py-2 px-4">{data.id}</td>
+                <td className="py-2 px-4">{data.clientName}</td>
+                <td className="py-2 px-4">{data.projectName}</td>
+                <td className="py-2 px-4">{data.date}</td>
+                <td className="py-2 px-4"><img src={data.type} alt="image" /></td>
+                <td className="py-2 px-4">{data.amount}</td>
               </tr>
             ))}
           </tbody>

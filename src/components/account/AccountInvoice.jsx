@@ -72,25 +72,25 @@ const AccountInvoice = () => {
         <span>Accounts</span> / <span>Invoice</span>
       </h1>
       <div className="mt-14 ">
-      <table className="min-w-full">
+      <table className="w-full text-left">
           <thead className="bg-[#0098F1] text-white">
             <tr>
-              <th className="pl-5 pr-28 py-3 text-left">Invoice_Number</th>
-              <th className="px-20 py-3 text-left">Client </th>
-              <th className="px-20 py-3 text-left">Date</th>
-              <th className="px-16 py-3 text-left">Type</th>
-              <th className="px-10 py-3 text-left">Status</th>
-              <th className="px-20 py-3 text-left">Amount</th>
+              <th className="py-2 px-4">Invoice_Number</th>
+              <th className="py-2 px-4">Client </th>
+              <th className="py-2 px-4">Date</th>
+              <th className="py-2 px-4">Type</th>
+              <th className="py-2 px-4">Status</th>
+              <th className="py-2 px-4">Amount</th>
             </tr>
           </thead>
           <tbody>
             {InvoiceData.map((data) => (
               <tr key={data.id} className="font-semibold">
-                <td className=" pl-5 pr-28 py-2">{data.Invoice_Number}</td>
-                <td className="py-2 px-20">{data.Client}</td>
-                <td className="py-2 px-20">{data.Date}</td>
-                <td className="px-16"><img src={data.Type} alt="image" /></td>
-                <td className="py-2 px-10">
+                <td className=" py-2 px-4">{data.Invoice_Number}</td>
+                <td className="py-2 px-4">{data.Client}</td>
+                <td className="py-2 px-4">{data.Date}</td>
+                <td className="py-2 px-4"><img src={data.Type} alt="image" /></td>
+                <td className="py-2 px-4">
                   <p
                     type="button"
                     className={`${
@@ -102,7 +102,7 @@ const AccountInvoice = () => {
                     {data.Status}
                   </p>
                 </td>
-                <td className="py-2 px-20">{data.Amount}</td>
+                <td className="py-2 px-4">{data.Amount}</td>
               </tr>
             ))}
           </tbody>
